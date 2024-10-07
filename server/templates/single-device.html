@@ -1,0 +1,43 @@
+{% include 'header.html' %}
+
+<div class="container">
+
+    <h1>Device {{ device.id }} Details</h1>
+
+    <p><strong>Status:</strong> 
+        {% if device.is_online() %}
+            <span style="color:green">Online</span>
+        {% else %}
+            <span style="color:red">Offline</span>
+        {% endif %}
+    </p>
+
+    <p><strong>Can view sent info:</strong> {{ "Yes" if device.can_view_info else "No" }}</p>
+
+    <p><strong>Device Name:</strong> {{ device.device_name }}</p>
+    <p><strong>OS Version:</strong> {{ device.os_version }}</p>
+    <p><strong>Unique ID:</strong> {{ device.hardware_id }}</p>
+    <p><strong>Geolocation:</strong> {{ device.geo_location or "N/A" }}</p>
+    <p><strong>Address:</strong> {{ device.country }}, {{ device.city }}</p>
+
+    <p><strong>Installed Applications:</strong></p>
+    <ul>
+        {% if device.installed_apps %}
+            {% for app in device.installed_apps.split(',') %}
+            <li>{{ app }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No applications available.</li>
+        {% endif %}
+    </ul>
+
+    <p><strong>Last Heartbeat:</strong> {{ device.last_heartbeat or "No heartbeats yet" }}</p>
+    <p><strong>Timestamp:</strong> {{ device.timestamp }}</p>
+
+    <form action="{{ url_for('routes.post_delete_device', id=device.id) }}" method="POST" style="display:inline;">
+        <button type="submit" class="button red-button">Delete Device</button>
+    </form>
+
+</div>
+
+{% include 'footer.html' %}

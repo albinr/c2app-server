@@ -1,0 +1,27 @@
+{% include 'header.html' %}
+
+<div class="container">
+    <h1>Sign Up</h1>
+
+    <form action="{{ url_for('routes.signup') }}" class="form" method="POST">
+        <label for="username" class="input-label">Username</label>
+        <input type="text" name="username" class="input" required>
+
+        <label for="password" class="input-label">Password</label>
+        <input type="password" name="password" class="input" required>
+
+        <button type="submit" class="button green-button full-width-button">Sign Up</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+
+{% include 'footer.html' %}

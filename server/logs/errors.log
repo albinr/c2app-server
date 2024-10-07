@@ -1,0 +1,125 @@
+2024-10-02 19:26:21,070 - ERROR - Exception on request GET /devices
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 147, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 129, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 48, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/core.py", line 132, in _execute
+    return await future
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/core.py", line 115, in run
+    result = function()
+sqlite3.OperationalError: no such column: devices.is_banned
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app/server/routes.py", line 85, in devices
+    result = await session.execute(select(Device))
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 461, in execute
+    result = await greenlet_spawn(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 147, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 129, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 48, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/core.py", line 132, in _execute
+    return await future
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/aiosqlite/core.py", line 115, in run
+    result = function()
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: devices.is_banned
+[SQL: SELECT devices.id, devices.hardware_id, devices.device_name, devices.os_version, devices.geo_location, devices.installed_apps, devices.timestamp, devices.last_heartbeat, devices.can_view_info, devices.is_banned 
+FROM devices]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-10-03 15:24:39,739 - ERROR - Exception on request POST /device/1/toggle_ban
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app/server/routes.py", line 129, in post_toggle_ban_device
+    current_app.logger.info(f"User {current_user.username} {action} device {device.device_name}.")
+AttributeError: 'AuthUser' object has no attribute 'username'
+2024-10-03 15:53:02,983 - ERROR - Exception on request POST /device/1/toggle_ban
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app/server/venv/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app/server/routes.py", line 129, in post_toggle_ban_device
+    current_app.logger.info(f"User {current_user.username} {action} device {device.device_name}.")
+AttributeError: 'AuthUser' object has no attribute 'username'

@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+
+<div class="container">
+    <h1>Server Logs</h1>
+    <div class="log-container">
+        <div id="log-container"></div>
+
+        <script>
+            const logContainer = document.getElementById('log-container');
+            const ws = new WebSocket('ws://{{ request.host }}/ws/logs');
+
+            ws.onmessage = function (event) {
+                const data = JSON.parse(event.data);
+                logContainer.innerHTML = "";
+                data.logs.forEach(log => {
+                    const logElement = document.createElement('p');
+                    logElement.textContent = log;
+                    logElement.classList.add("log-line");
+                    logContainer.appendChild(logElement);
+                });
+            };
+
+            ws.onclose = function () {
+                const logElement = document.createElement('p');
+                logElement.textContent = "Connection closed";
+                logContainer.appendChild(logElement);
+            };
+        </script>
+    </div>
+</div>
+
+{% include 'footer.html' %}
