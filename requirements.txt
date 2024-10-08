@@ -35,7 +35,6 @@ packaging==24.1
 priority==2.0.0
 PyJWT==2.3.0
 pyparsing==2.4.7
-PyYAML==5.4.1
 Quart==0.19.6
 quart-auth==0.10.1
 requests==2.32.3
