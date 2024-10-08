@@ -24,20 +24,30 @@
                 <td>{{ device.last_heartbeat or 'No heartbeats yet' }}</td>
                 <td>
                     {% if device.is_online() %}
-                        <span style="color:green">Online</span>
+                    <span style="color:green">Online</span>
                     {% else %}
-                        <span style="color:red">Offline</span>
+                    <span style="color:red">Offline</span>
                     {% endif %}
                 </td>
                 <td>
-                    <form action="{{ url_for('routes.post_delete_device', id=device.id) }}" method="POST" style="display:inline;">
+                    <form action="{{ url_for('routes.post_delete_device', id=device.id) }}" method="POST"
+                        style="display:inline;">
                         <button type="submit" class="button red-button">Delete</button>
                     </form>
-                    <form action="{{ url_for('routes.post_toggle_ban_device', id=device.id) }}" method="POST" style="display:inline;">
+                    <form action="{{ url_for('routes.post_toggle_ban_device', id=device.id) }}" method="POST"
+                        style="display:inline;">
                         {% if device.is_banned %}
-                            <button type="submit" class="button green-button">Unban</button>
+                        <button type="submit" class="button green-button">Unban</button>
                         {% else %}
-                            <button type="submit" class="button red-button">Ban</button>
+                        <button type="submit" class="button red-button">Ban</button>
+                        {% endif %}
+                    </form>
+                    <form action="{{ url_for('routes.post_toggle_restrict_device', id=device.id) }}" method="POST"
+                        style="display:inline;">
+                        {% if device.can_view_info %}
+                        <button type="submit" class="button red-button">Restrict</button>
+                        {% else %}
+                        <button type="submit" class="button green-button">Unrestrict</button>
                         {% endif %}
                     </form>
                 </td>
