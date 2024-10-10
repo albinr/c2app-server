@@ -18,17 +18,17 @@
 <body>
     <nav>
         <ul>
-            <li {%- if request.path=="/" %} class="active" {% endif %}><a href="{{ url_for('routes.main') }}"><img
+            <li {%- if request.path=="/" %} class="active" {% endif %}><a href="{{ url_for('routes.main_routes.main') }}"><img
                         src="{{ url_for('static', filename='images/blueeye.png') }}" width="40" alt="blue eye"></a></li>
 
             {%- if current_user.is_authenticated %}
             <li {%- if request.path=="/devices" %} class="active" {% endif %}><a
-                    href="{{ url_for('routes.devices') }}">Devices</a></li>
-            <li {%- if request.path=="/logs" %} class="active" {% endif %}><a href="{{ url_for('routes.view_logs') }}">Server Logs</a></li>
-            <li><a href="{{ url_for('routes.logout') }}">Logout</a></li>
+                    href="{{ url_for('routes.device_routes.devices') }}">Devices</a></li>
+            <li {%- if request.path=="/logs" %} class="active" {% endif %}><a href="{{ url_for('routes.logs_routes.view_logs') }}">Server Logs</a></li>
+            <li><a href="{{ url_for('routes.auth_routes.logout') }}">Logout</a></li>
             {%- else %}
             <li {%- if request.path=="/login" %} class="active" {% endif %}><a
-                    href="{{ url_for('routes.login') }}">Login</a></li>
+                    href="{{ url_for('routes.auth_routes.login') }}">Login</a></li>
             {%- endif %}
         </ul>
     </nav>

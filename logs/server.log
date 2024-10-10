@@ -4015,3 +4015,1097 @@ AttributeError: 'Device' object has no attribute 'can_view_info'
 2024-10-10 17:17:34,084 - INFO - Server was pinged.
 2024-10-10 17:17:34,385 - INFO - Received heartbeat from albinxps.
 2024-10-10 17:17:39,408 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:36:19,722 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:36:22,814 - ERROR - Exception on request GET /
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/main.py", line 7, in main
+    return await render_template("index.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/index.html", line 1, in top-level template code
+    {% include 'header.html' %}
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/header.html", line 21, in top-level template code
+    <li {%- if request.path=="/" %} class="active" {% endif %}><a href="{{ url_for('routes.main') }}"><img
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.main'. Did you mean 'routes.main_routes.main' instead?
+2024-10-10 17:38:45,680 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:38:51,981 - ERROR - Exception on request GET /login
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 60, in login
+    return await render_template("login.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/login.html", line 1, in top-level template code
+    {% include 'header.html' %}
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/header.html", line 21, in top-level template code
+    <li {%- if request.path=="/" %} class="active" {% endif %}><a href="{{ url_for('main_routes.main') }}"><img
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main_routes.main'. Did you mean 'routes.main_routes.main' instead?
+2024-10-10 17:38:56,340 - ERROR - Exception on request GET /
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/main.py", line 7, in main
+    return await render_template("index.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/index.html", line 1, in top-level template code
+    {% include 'header.html' %}
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/header.html", line 21, in top-level template code
+    <li {%- if request.path=="/" %} class="active" {% endif %}><a href="{{ url_for('main_routes.main') }}"><img
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main_routes.main'. Did you mean 'routes.main_routes.main' instead?
+2024-10-10 17:39:16,345 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:39:21,473 - ERROR - Exception on request GET /
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/main.py", line 7, in main
+    return await render_template("index.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/index.html", line 1, in top-level template code
+    {% include 'header.html' %}
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/header.html", line 31, in top-level template code
+    href="{{ url_for('routes.login') }}">Login</a></li>
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 17:39:41,393 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:39:47,394 - ERROR - Exception on request GET /login
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 60, in login
+    return await render_template("login.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/login.html", line 6, in top-level template code
+    <form action="{{ url_for('routes.login') }}" class="form" method="POST">
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 17:40:48,457 - ERROR - Exception on request GET /login
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 60, in login
+    return await render_template("login.html")
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/login.html", line 6, in top-level template code
+    <form action="{{ url_for('routes.login') }}" class="form" method="POST">
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 17:41:18,413 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:41:28,949 - INFO - User albin logged in.
+2024-10-10 17:41:28,951 - ERROR - Exception on request POST /login
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 55, in login
+    return redirect(url_for('routes.devices'))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.devices'. Did you mean 'routes.device_routes.devices' instead?
+2024-10-10 17:44:12,934 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:44:15,563 - INFO - User albin logged in.
+2024-10-10 17:44:15,597 - ERROR - Exception on request GET /devices
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 25, in devices
+    return await render_template("devices.html", devices=devices)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/devices.html", line 21, in top-level template code
+    <td><a href="{{ url_for('routes.single_device', id=device.id) }}">{{ device.device_name }}</a></td>
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.single_device' with values ['id']. Did you mean 'routes.device_routes.single_device' instead?
+2024-10-10 17:45:00,295 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:45:12,294 - INFO - User albin logged in.
+2024-10-10 17:45:24,919 - ERROR - Exception on request POST /device/5/toggle_watchlist
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 58, in post_toggle_watchlist_device
+    current_app.logger.info(f"User {current_user.auth_id} {action} the watchlist for device {device.device_name}.")
+NameError: name 'current_user' is not defined. Did you mean: 'current_app'?
+2024-10-10 17:46:00,796 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:46:25,883 - INFO - User albin logged in.
+2024-10-10 17:46:28,763 - ERROR - Exception on request POST /device/6/toggle_watchlist
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 58, in post_toggle_watchlist_device
+    current_app.logger.info(f"User {current_user.auth_id} {action} the watchlist for device {device.device_name}.")
+NameError: name 'current_user' is not defined. Did you mean: 'current_app'?
+2024-10-10 17:48:34,438 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:48:44,776 - INFO - User albin logged in.
+2024-10-10 17:48:49,411 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-10 17:48:49,412 - ERROR - Exception on request POST /device/1/toggle_watchlist
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 62, in post_toggle_watchlist_device
+    return redirect(url_for('routes.devices'))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.devices'. Did you mean 'routes.device_routes.devices' instead?
+2024-10-10 17:50:03,394 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:50:12,601 - INFO - User albin logged in.
+2024-10-10 17:50:19,651 - INFO - User 1 restricted device albinxps.
+2024-10-10 17:50:22,332 - INFO - User 1 unrestricted device albinxps.
+2024-10-10 17:50:23,867 - INFO - User 1 added to the watchlist for device albinxps.
+2024-10-10 17:50:27,153 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-10 17:50:29,126 - INFO - User 1 added to the watchlist for device albinxps.
+2024-10-10 17:50:50,064 - ERROR - Exception on request GET /devices/1
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 36, in single_device
+    return await render_template("single-device.html", device=device)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/single-device.html", line 26, in top-level template code
+    <form action="{{ url_for('routes.post_delete_device', id=device.id) }}" method="POST" style="margin-top: 10px;">
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'routes.post_delete_device' with values ['id']. Did you mean 'routes.device_routes.post_delete_device' instead?
+2024-10-10 17:51:33,784 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:52:14,469 - INFO - User albin logged in.
+2024-10-10 17:52:26,890 - INFO - User 1 deleted device Postman PC 6.
+2024-10-10 17:52:33,780 - ERROR - Exception on websocket /ws/logs
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1415, in handle_websocket
+    return await self.full_dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1463, in full_dispatch_websocket
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1461, in full_dispatch_websocket
+    result = await self.dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1551, in dispatch_websocket
+    return await self.ensure_async(handler)(**websocket_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/logs.py", line 21, in ws_logs
+    log_connections.add(websocket._get_current_object())
+NameError: name 'log_connections' is not defined
+2024-10-10 17:54:22,059 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:54:31,544 - INFO - User albin logged in.
+2024-10-10 17:54:48,280 - INFO - Server was pinged.
+2024-10-10 17:54:48,294 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:54:48,295 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:54:48,299 - ERROR - Exception on request POST /device
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 133, in api_add_device
+    return jsonify({"error": "A device with this hardware ID already exists."}), 400
+NameError: name 'jsonify' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 149, in api_add_device
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 400
+NameError: name 'jsonify' is not defined
+2024-10-10 17:54:53,408 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:54:53,409 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:54:58,401 - INFO - Server was pinged.
+2024-10-10 17:54:58,433 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:54:58,433 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:03,466 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:03,467 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:08,423 - INFO - Server was pinged.
+2024-10-10 17:55:08,497 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:08,498 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:13,527 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:13,528 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:18,442 - INFO - Server was pinged.
+2024-10-10 17:55:18,552 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:18,553 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:23,574 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:23,575 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:28,460 - INFO - Server was pinged.
+2024-10-10 17:55:28,590 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:28,591 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:33,606 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:33,606 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:38,474 - INFO - Server was pinged.
+2024-10-10 17:55:38,617 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:38,618 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:43,638 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:43,639 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:48,483 - INFO - Server was pinged.
+2024-10-10 17:55:48,656 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:48,657 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:53,673 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:55:53,673 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:55:57,956 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-10 17:55:58,504 - INFO - Server was pinged.
+2024-10-10 17:55:58,695 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-10 17:55:58,698 - ERROR - An error occurred: name 'jsonify' is not defined
+2024-10-10 17:55:58,699 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 170, in api_device_heartbeat
+    return jsonify({"error": "This device is off the watchlist."}), 403
+NameError: name 'jsonify' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:56:00,810 - INFO - User 1 added to the watchlist for device albinxps.
+2024-10-10 17:56:03,724 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:56:03,725 - ERROR - Exception on request POST /device/heartbeat
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 172, in api_device_heartbeat
+    device.last_heartbeat = func.current_timestamp()
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 180, in api_device_heartbeat
+    return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+NameError: name 'jsonify' is not defined
+2024-10-10 17:56:44,751 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:56:50,561 - INFO - Server was pinged.
+2024-10-10 17:56:50,575 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:56:55,691 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:00,676 - INFO - Server was pinged.
+2024-10-10 17:57:00,701 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:05,721 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:10,691 - INFO - Server was pinged.
+2024-10-10 17:57:10,730 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:15,743 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:20,707 - INFO - Server was pinged.
+2024-10-10 17:57:20,759 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:25,772 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:30,729 - INFO - Server was pinged.
+2024-10-10 17:57:30,792 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:35,811 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:40,747 - INFO - Server was pinged.
+2024-10-10 17:57:40,828 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:43,628 - INFO - User albin logged in.
+2024-10-10 17:57:45,844 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:50,754 - INFO - Server was pinged.
+2024-10-10 17:57:50,857 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:57:55,872 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:00,768 - INFO - Server was pinged.
+2024-10-10 17:58:00,887 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:05,903 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:10,797 - INFO - Server was pinged.
+2024-10-10 17:58:10,917 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:15,931 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:20,812 - INFO - Server was pinged.
+2024-10-10 17:58:20,951 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:25,988 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:30,826 - INFO - Server was pinged.
+2024-10-10 17:58:31,019 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:36,035 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:40,838 - INFO - Server was pinged.
+2024-10-10 17:58:41,045 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:46,059 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:50,848 - INFO - Server was pinged.
+2024-10-10 17:58:51,074 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:58:56,097 - ERROR - An error occurred: name 'func' is not defined
+2024-10-10 17:59:05,054 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 17:59:13,688 - INFO - User albin logged in.
+2024-10-10 17:59:20,537 - INFO - Server was pinged.
+2024-10-10 17:59:20,561 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:25,607 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:30,650 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:30,653 - INFO - Server was pinged.
+2024-10-10 17:59:35,222 - INFO - User 1 logged out.
+2024-10-10 17:59:35,687 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:40,672 - INFO - Server was pinged.
+2024-10-10 17:59:40,717 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:45,748 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:50,688 - INFO - Server was pinged.
+2024-10-10 17:59:50,777 - INFO - Received heartbeat from albinxps.
+2024-10-10 17:59:55,802 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:00,708 - INFO - Server was pinged.
+2024-10-10 18:00:00,834 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:05,862 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:10,730 - INFO - Server was pinged.
+2024-10-10 18:00:10,898 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:15,928 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:20,748 - INFO - Server was pinged.
+2024-10-10 18:00:20,970 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:26,012 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:30,767 - INFO - Server was pinged.
+2024-10-10 18:00:31,044 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:36,089 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:40,788 - INFO - Server was pinged.
+2024-10-10 18:00:41,133 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:46,161 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:50,807 - INFO - Server was pinged.
+2024-10-10 18:00:51,186 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:00:56,211 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:00,825 - INFO - Server was pinged.
+2024-10-10 18:01:01,236 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:06,262 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:10,835 - INFO - Server was pinged.
+2024-10-10 18:01:11,287 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:16,316 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:20,854 - INFO - Server was pinged.
+2024-10-10 18:01:21,354 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:26,402 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:30,879 - INFO - Server was pinged.
+2024-10-10 18:01:31,429 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:36,455 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:40,900 - INFO - Server was pinged.
+2024-10-10 18:01:41,496 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:46,552 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:50,919 - INFO - Server was pinged.
+2024-10-10 18:01:51,595 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:01:56,621 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:00,938 - INFO - Server was pinged.
+2024-10-10 18:02:01,645 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:06,666 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:10,952 - INFO - Server was pinged.
+2024-10-10 18:02:11,685 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:16,710 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:20,966 - INFO - Server was pinged.
+2024-10-10 18:02:21,735 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:26,761 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:30,980 - INFO - Server was pinged.
+2024-10-10 18:02:31,784 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:36,808 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:40,991 - INFO - Server was pinged.
+2024-10-10 18:02:41,838 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:46,866 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:51,010 - INFO - Server was pinged.
+2024-10-10 18:02:51,892 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:02:56,926 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:01,029 - INFO - Server was pinged.
+2024-10-10 18:03:01,986 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:07,048 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:11,042 - INFO - Server was pinged.
+2024-10-10 18:03:12,098 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:17,126 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:21,058 - INFO - Server was pinged.
+2024-10-10 18:03:22,154 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:27,183 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:31,072 - INFO - Server was pinged.
+2024-10-10 18:03:32,213 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:37,264 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:41,084 - INFO - Server was pinged.
+2024-10-10 18:03:42,321 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:47,348 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:51,099 - INFO - Server was pinged.
+2024-10-10 18:03:52,377 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:03:57,419 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:01,119 - INFO - Server was pinged.
+2024-10-10 18:04:02,459 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:07,504 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:11,138 - INFO - Server was pinged.
+2024-10-10 18:04:12,543 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:17,569 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:21,153 - INFO - Server was pinged.
+2024-10-10 18:04:22,598 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:27,622 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:31,167 - INFO - Server was pinged.
+2024-10-10 18:04:32,648 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:37,676 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:41,181 - INFO - Server was pinged.
+2024-10-10 18:04:42,709 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:47,745 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:51,188 - INFO - Server was pinged.
+2024-10-10 18:04:52,782 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:04:57,805 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:01,202 - INFO - Server was pinged.
+2024-10-10 18:05:02,857 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:07,895 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:11,218 - INFO - Server was pinged.
+2024-10-10 18:05:12,926 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:17,974 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:21,240 - INFO - Server was pinged.
+2024-10-10 18:05:23,006 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:28,056 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:31,258 - INFO - Server was pinged.
+2024-10-10 18:05:33,097 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:38,141 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:41,274 - INFO - Server was pinged.
+2024-10-10 18:05:43,184 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:48,214 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:51,297 - INFO - Server was pinged.
+2024-10-10 18:05:53,260 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:05:58,290 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:06:01,324 - INFO - Server was pinged.
+2024-10-10 18:06:03,326 - INFO - Received heartbeat from albinxps.
+2024-10-10 18:06:13,434 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 18:06:25,271 - INFO - User albin logged in.
+2024-10-10 18:06:55,239 - INFO - User 1 logged out.
+2024-10-10 18:06:55,240 - ERROR - Exception on request GET /logout
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 68, in logout
+    return redirect(url_for('auth_routes.login'))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'auth_routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 18:07:38,234 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 18:07:42,637 - ERROR - Exception on request GET /logout
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 62, in wrapper
+    raise Unauthorized()
+quart_auth.extension.Unauthorized: 401 Unauthorized: The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1019, in handle_user_exception
+    return await self.handle_http_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1004, in handle_http_exception
+    return await self.ensure_async(handler)(error)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/auth.py", line 72, in redirect_to_login
+    return redirect(url_for("auth_routes.login"))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'auth_routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 18:10:50,819 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 18:11:08,335 - INFO - Failed login with albin
+2024-10-10 18:11:13,223 - INFO - User albin logged in.
+2024-10-10 18:11:20,616 - INFO - User 1 logged out.
+2024-10-10 18:11:27,379 - INFO - User albin logged in.
+2024-10-10 18:11:33,736 - INFO - User 1 logged out.
+2024-10-10 18:14:33,046 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 18:14:38,294 - ERROR - Exception on request GET /devices
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 62, in wrapper
+    raise Unauthorized()
+quart_auth.extension.Unauthorized: 401 Unauthorized: The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1019, in handle_user_exception
+    return await self.handle_http_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1004, in handle_http_exception
+    return await self.ensure_async(handler)(error)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/__init__.py", line 15, in redirect_to_login
+    return redirect(url_for("auth_routes.login"))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'auth_routes.login'. Did you mean 'routes.auth_routes.login' instead?
+2024-10-10 18:14:58,090 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-10 18:16:24,800 - INFO - Failed login with sdf
+2024-10-10 18:16:29,186 - INFO - User albin logged in.
+2024-10-10 18:16:45,883 - INFO - User 1 logged out.
+2024-10-10 18:17:06,116 - INFO - User albin logged in.
+2024-10-10 18:17:13,877 - INFO - User 1 logged out.
+2024-10-10 18:17:55,947 - INFO - User albin logged in.
+2024-10-10 20:14:20,418 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-10 20:14:21,140 - INFO - User 1 removed from the watchlist for device Postman PC 1.
+2024-10-10 20:14:21,680 - INFO - User 1 removed from the watchlist for device Postman PC 2.
+2024-10-10 20:14:22,154 - INFO - User 1 removed from the watchlist for device Postman PC 3.
+2024-10-10 20:14:22,709 - INFO - User 1 removed from the watchlist for device Postman PC 4.
+2024-10-10 20:14:23,677 - INFO - User 1 restricted device albinxps.
+2024-10-10 20:14:24,399 - INFO - User 1 unrestricted device albinxps.
+2024-10-10 20:14:25,096 - INFO - User 1 unrestricted device Postman PC 1.
+2024-10-10 20:14:25,646 - INFO - User 1 unrestricted device Postman PC 2.
+2024-10-10 20:14:26,892 - INFO - User 1 restricted device Postman PC 2.
+2024-10-10 20:14:27,462 - INFO - User 1 restricted device Postman PC 1.
+2024-10-10 20:14:28,069 - INFO - User 1 restricted device albinxps.
+2024-10-10 20:14:34,266 - INFO - User 1 added to the watchlist for device albinxps.
+2024-10-10 20:14:35,720 - INFO - User 1 added to the watchlist for device Postman PC 5.
+2024-10-10 20:14:36,402 - INFO - User 1 added to the watchlist for device Postman PC 4.
+2024-10-10 20:14:36,942 - INFO - User 1 added to the watchlist for device Postman PC 3.
+2024-10-10 20:14:37,538 - INFO - User 1 added to the watchlist for device Postman PC 2.
+2024-10-10 20:14:38,084 - INFO - User 1 added to the watchlist for device Postman PC 1.

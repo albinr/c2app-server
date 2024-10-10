@@ -312,6 +312,34 @@ async def ping():
     current_app.logger.info(f"Server was pinged.")
     return jsonify({"message": "Server is running"}), 200
 
+# @routes.route('/command', methods=['POST'])
+# async def send_command():
+#     data = request.json
+#     hardware_id = data.get('hardware_id')
+#     command = data.get('command')
+
+#     if not hardware_id or not command:
+#         return jsonify({"error": "Missing hardware_id or command"}), 400
+
+#     # Store the command for the hardware_id
+#     command_store[hardware_id] = command
+#     return jsonify({"message": "Command sent to the device."}), 200
+
+# @routes.route('/command', methods=['GET'])
+# async def get_command():
+#     data = request.json
+#     hardware_id = data.get('hardware_id')
+
+#     if not hardware_id:
+#         return jsonify({"error": "Missing hardware_id"}), 400
+
+#     # Retrieve the command for the hardware_id
+#     command = command_store.get(hardware_id)
+#     if not command:
+#         return jsonify({"error": "No command available"}), 404
+
+#     return jsonify({"command": command}), 200
+
 @routes.route('/upload', methods=['POST'])
 async def upload_file():
     try:
@@ -343,31 +371,4 @@ async def upload_file():
         current_app.logger.error(f"An error occurred: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
-# @routes.route('/command', methods=['POST'])
-# async def send_command():
-#     data = request.json
-#     hardware_id = data.get('hardware_id')
-#     command = data.get('command')
-
-#     if not hardware_id or not command:
-#         return jsonify({"error": "Missing hardware_id or command"}), 400
-
-#     # Store the command for the hardware_id
-#     command_store[hardware_id] = command
-#     return jsonify({"message": "Command sent to the device."}), 200
-
-# @routes.route('/command', methods=['GET'])
-# async def get_command():
-#     data = request.json
-#     hardware_id = data.get('hardware_id')
-
-#     if not hardware_id:
-#         return jsonify({"error": "Missing hardware_id"}), 400
-
-#     # Retrieve the command for the hardware_id
-#     command = command_store.get(hardware_id)
-#     if not command:
-#         return jsonify({"error": "No command available"}), 404
-
-#     return jsonify({"command": command}), 200
 

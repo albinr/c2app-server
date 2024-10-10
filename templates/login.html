@@ -3,14 +3,14 @@
 <div class="container">
 
     <h1>Admin Login</h1>
-    <form action="{{ url_for('routes.login') }}" class="form" method="POST">
+    <form action="{{ url_for('routes.auth_routes.login') }}" class="form" method="POST">
         <label for="username" class="input-label">Username</label>
         <input type="text" name="username" id="username" class="input" required>
         <label for="password" class="input-label">Password</label>
         <input type="password" name="password" id="password" class="input" required>
         <button type="submit" class="button green-button full-width-button">Login</button>
         <br>
-        <a href="{{ url_for('routes.signup') }}">Sign up</a>
+        <a href="{{ url_for('routes.auth_routes.signup') }}">Sign up</a>
     </form>
 
     {% with messages = get_flashed_messages() %}
