@@ -298,3 +298,28 @@ button.delete:hover {
 .input-label::after {
     content: ":";
 }
+
+/* Single device */
+.device-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Device details section */
+.device-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.device-details {
+    margin-bottom: 20px;
+}
+
+/* Applications section */
+.applications-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+

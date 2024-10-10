@@ -1,7 +1,7 @@
 {% include 'header.html' %}
 
 <div class="container">
-    <h1>Registered Devices</h1>
+    <h1>Device Watchlist</h1>
 
     {% if devices %}
     <table class="device-table">
@@ -30,16 +30,12 @@
                     {% endif %}
                 </td>
                 <td>
-                    <form action="{{ url_for('routes.post_delete_device', id=device.id) }}" method="POST"
+                    <form action="{{ url_for('routes.post_toggle_watchlist_device', id=device.id) }}" method="POST"
                         style="display:inline;">
-                        <button type="submit" class="button red-button">Delete</button>
-                    </form>
-                    <form action="{{ url_for('routes.post_toggle_ban_device', id=device.id) }}" method="POST"
-                        style="display:inline;">
-                        {% if device.is_banned %}
-                        <button type="submit" class="button green-button">Unban</button>
+                        {% if device.on_watchlist %}
+                        <button type="submit" class="button red-button">Remove</button>
                         {% else %}
-                        <button type="submit" class="button red-button">Ban</button>
+                        <button type="submit" class="button green-button">Add</button>
                         {% endif %}
                     </form>
                     <form action="{{ url_for('routes.post_toggle_restrict_device', id=device.id) }}" method="POST"

@@ -10,7 +10,6 @@ Base = declarative_base()
 
 class Device(Base):
     __tablename__ = 'devices'
-
     id = Column(Integer, primary_key=True)
     hardware_id = Column(String(200), nullable=False, index=True, unique=True)
     device_name = Column(String(50), nullable=False)
@@ -19,8 +18,9 @@ class Device(Base):
     installed_apps = Column(Text)
     timestamp = Column(DateTime, default=func.current_timestamp())
     last_heartbeat = Column(DateTime)
+    on_watchlist = Column(Boolean, default=True)
     can_view_info = Column(Boolean, default=False)
-    is_banned = Column(Boolean, default=False)
+
 
     def is_online(self):
         return self.last_heartbeat and (datetime.utcnow() - self.last_heartbeat) < timedelta(seconds=60)

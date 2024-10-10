@@ -85,12 +85,12 @@ async def devices():
         result = await session.execute(select(Device))
         devices = result.scalars().all()
         def sort_key(device):
-            if device.is_banned:
-                return 1
+            if not device.on_watchlist:
+                return 2
             elif device.is_online():
                 return 0
-            else:
-                return 2
+            elif not device.is_online():
+                return 1
 
         devices.sort(key=sort_key)
     return await render_template("devices.html", devices=devices)
@@ -117,20 +117,21 @@ async def post_delete_device(id):
         await flash(f"Device {device.device_name} deleted successfully!")
     return redirect(url_for('routes.devices'))
 
-@routes.route('/device/<int:id>/toggle_ban', methods=['POST'])
+@routes.route('/device/<int:id>/toggle_watchlist', methods=['POST'])
 @login_required
-async def post_toggle_ban_device(id):
+async def post_toggle_watchlist_device(id):
     async with Config.AsyncSessionLocal() as session:
         device = await session.get(Device, id)
         if device:
-            device.is_banned = not device.is_banned
+            device.on_watchlist = not device.on_watchlist
             await session.commit()
-            action = "banned" if device.is_banned else "unbanned"
-            current_app.logger.info(f"User {current_user.auth_id} {action} device {device.device_name}.")
-            await flash(f"Device {device.device_name} has been {action} successfully!")
+            action = "added to" if device.on_watchlist else "removed from"
+            current_app.logger.info(f"User {current_user.auth_id} {action} the watchlist for device {device.device_name}.")
+            await flash(f"Device {device.device_name} has been {action} the watchlist successfully!")
         else:
             await flash(f"Device with ID {id} not found.", 'error')
     return redirect(url_for('routes.devices'))
+
 
 @routes.route('/device/<int:id>/toggle_restrict', methods=['POST'])
 @login_required
@@ -146,50 +147,6 @@ async def post_toggle_restrict_device(id):
         else:
             await flash(f"Device with ID {id} not found.", 'error')
     return redirect(url_for('routes.devices'))
-
-@routes.route('/device/<int:hardware_id>/info', methods=['GET'])
-async def get_device_info(hardware_id):
-    async with Config.AsyncSessionLocal() as session:
-        device = await session.get(Device, hardware_id)
-        
-        if device.is_banned:
-            return jsonify({"error": "Device is banned."}), 403
-
-        if not device.can_view_info:
-            return jsonify({"error": "Device is restricted from viewing information."}), 403
-        
-        return jsonify({"device_info": device.to_dict()})
-
-
-@routes.route('/device/update', methods=['POST'])
-async def api_update_device():
-    try:
-        data = await request.json
-        hardware_id = data.get('hardware_id')
-
-        if not hardware_id:
-            return jsonify({"error": "Hardware ID is required"}), 400
-
-        async with Config.AsyncSessionLocal() as session:
-            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
-            device = result.scalars().first()
-
-            if not device:
-                return jsonify({"error": "Device not found."}), 404
-
-            if device.is_banned:
-                return jsonify({"error": "Device is banned."}), 403
-
-            device.device_name = data.get('device_name', device.device_name)
-            device.os_version = data.get('os_version', device.os_version)
-            await session.commit()
-
-            return jsonify({"message": f"Device {device.device_name} updated successfully."}), 200
-
-    except Exception as e:
-        current_app.logger.error(f"An error occurred: {str(e)}")
-        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
-
 
 @routes.route('/logs')
 @login_required
@@ -216,6 +173,51 @@ async def ws_logs():
         current_app.logger.error(f"WebSocket error: {str(e)}")
     finally:
         log_connections.remove(websocket._get_current_object())
+
+@routes.route('/device/info', methods=['GET'])
+async def get_device_info():
+    hardware_id = request.args.get("hardware_id")
+    async with Config.AsyncSessionLocal() as session:
+        device = await session.get(Device, hardware_id)
+        if not device:
+            return jsonify({"error": "Device not found"}), 404
+        
+        if not device.on_watchlist:
+            return jsonify({"error": "Device is off the watchlist"}), 403
+
+        if not device.can_view_info:
+            return jsonify({"error": "Device is restricted from viewing information"}), 403
+        
+        return jsonify({"device_info": device.to_dict()})
+
+@routes.route('/device/update', methods=['POST'])
+async def api_update_device():
+    try:
+        data = await request.json
+        hardware_id = data.get('hardware_id')
+
+        if not hardware_id:
+            return jsonify({"error": "Hardware ID is required"}), 400
+
+        async with Config.AsyncSessionLocal() as session:
+            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
+            device = result.scalars().first()
+
+            if not device:
+                return jsonify({"error": "Device not found."}), 404
+
+            if not device.on_watchlist:
+                return jsonify({"error": "Device is off the watchlist."}), 403
+
+            device.device_name = data.get('device_name', device.device_name)
+            device.os_version = data.get('os_version', device.os_version)
+            await session.commit()
+
+            return jsonify({"message": f"Device {device.device_name} updated successfully."}), 200
+
+    except Exception as e:
+        current_app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 @routes.route('/device', methods=['POST'])
 async def api_add_device():
@@ -261,15 +263,41 @@ async def api_device_heartbeat():
                 current_app.logger.info(f"Received heartbeat from unknown device.")
                 return jsonify({"error": "Device not found"}), 404
             
-            if device.is_banned:
-                current_app.logger.info(f"Banned device {device.device_name} tried to send heartbeat.")
-                return jsonify({"error": "This device is banned."}), 403
+            if not device.on_watchlist:
+                current_app.logger.info(f"Device {device.device_name} off the watchlist tried to send heartbeat.")
+                return jsonify({"error": "This device is off the watchlist."}), 403
 
             device.last_heartbeat = func.current_timestamp()
             await session.commit()
 
             current_app.logger.info(f"Received heartbeat from {device.device_name}.")
             return jsonify({"message": f"Heartbeat for device {device.device_name} received!"}), 200
+
+    except Exception as e:
+        current_app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+@routes.route('/device/can_view', methods=['POST'])
+async def api_can_device_view():
+    try:
+        data = await request.json
+        hardware_id = data.get('hardware_id')
+
+        if not hardware_id:
+            return jsonify({"error": "Hardware ID is required"}), 400
+
+        async with Config.AsyncSessionLocal() as session:
+            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
+            device = result.scalars().first()
+
+            if not device:
+                return jsonify({"error": "Device not found"}), 404
+
+            if not device.on_watchlist:
+                return jsonify({"error": "Device is off the watchlist"}), 403
+
+            current_app.logger.info(f"Can device view info? {device.can_view_info}")
+            return jsonify({'can_view': device.can_view_info})
 
     except Exception as e:
         current_app.logger.error(f"An error occurred: {str(e)}")
@@ -283,3 +311,63 @@ async def redirect_to_login(*_):
 async def ping():
     current_app.logger.info(f"Server was pinged.")
     return jsonify({"message": "Server is running"}), 200
+
+@routes.route('/upload', methods=['POST'])
+async def upload_file():
+    try:
+        data = await request.form
+        file = (await request.files).get('file')
+        hardware_id = data.get('hardware_id')
+
+        if not hardware_id or not file:
+            return jsonify({"error": "Missing hardware_id or file"}), 400
+
+        async with Config.AsyncSessionLocal() as session:
+            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
+            device = result.scalars().first()
+
+            if not device:
+                return jsonify({"error": "Device not found"}), 404
+
+            if not device.on_watchlist:
+                return jsonify({"error": "Device is off the watchlist"}), 403
+
+            file_path = f"uploads/{hardware_id}_{file.filename}"
+            async with aiofiles.open(file_path, 'wb') as f:
+                await f.write(file.read())
+
+            current_app.logger.info(f"File {file.filename} uploaded for device {device.device_name}.")
+            return jsonify({"message": f"File {file.filename} uploaded successfully!"}), 200
+
+    except Exception as e:
+        current_app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+# @routes.route('/command', methods=['POST'])
+# async def send_command():
+#     data = request.json
+#     hardware_id = data.get('hardware_id')
+#     command = data.get('command')
+
+#     if not hardware_id or not command:
+#         return jsonify({"error": "Missing hardware_id or command"}), 400
+
+#     # Store the command for the hardware_id
+#     command_store[hardware_id] = command
+#     return jsonify({"message": "Command sent to the device."}), 200
+
+# @routes.route('/command', methods=['GET'])
+# async def get_command():
+#     data = request.json
+#     hardware_id = data.get('hardware_id')
+
+#     if not hardware_id:
+#         return jsonify({"error": "Missing hardware_id"}), 400
+
+#     # Retrieve the command for the hardware_id
+#     command = command_store.get(hardware_id)
+#     if not command:
+#         return jsonify({"error": "No command available"}), 404
+
+#     return jsonify({"command": command}), 200
+
