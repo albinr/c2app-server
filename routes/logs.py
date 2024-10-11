@@ -5,7 +5,6 @@ from quart_auth import login_required
 
 log_connections = set()
 
-
 logs_routes = Blueprint('logs_routes', __name__)
 
 @logs_routes.route('/logs')
