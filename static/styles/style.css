@@ -27,7 +27,7 @@ h1 {
 .container {
     max-width: 90%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 12px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -82,43 +82,51 @@ nav ul li.active a {
 /* Watchlist */
 
 .watchlist-container {
-    flex: 3;
-    margin-right: 20px;
-    background-color: #f8f9fa;
-    padding: 20px;
+    flex: 4;
+    /* margin-right: 10px; */
+    /* background-color: #f8f9fa; */
+    /* padding: 10px; */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .device-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .device-table th,
 .device-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
-.device-table th {
-    background-color: #f4f4f4;
-    color: #333;
-    font-weight: bold;
+.action-buttons {
+    display: flex;
+    flex-direction: row;
 }
 
-.device-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.device-table th {
+    /* background-color: #f4f4f4; */
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
 }
+
+/* .device-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
 
 .device-table tr:hover {
     background-color: #f1f1f1;
 }
 
 /* Button Styles */
-
 .button {
     color: darkgray;
     background-color: white;
@@ -218,6 +226,34 @@ nav ul li.active a {
 .green-button:active {
     background-color: darken(#28a745, 35%);
     background-image: none;
+}
+
+/* icon button */
+.icon-button {
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 4px;
+}
+
+.icon-button img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.icon-button:hover {
+    opacity: 0.8;
+}
+
+.red-icon {
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(100deg);
+}
+
+.green-icon {
+    filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(200deg);
 }
 
 
@@ -328,7 +364,7 @@ nav ul li.active a {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .device-request-container h1 {
@@ -388,3 +424,9 @@ nav ul li.active a {
     opacity: 0.9;
 }
 
+.flash-messages {
+    /* padding: 8px; */
+    border-radius: 10px;
+    text-align: center;
+    background-color: lightblue;
+}

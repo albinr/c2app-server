@@ -1,29 +1,31 @@
 <div class="watchlist-container">
     <h1>Device Watchlist</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
     {% if devices %}
     <table class="device-table">
         <thead>
             <tr>
+                <th style="text-align: center;">ID</th>
+                <th>Status</th>
                 <th>Device Name</th>
                 <th>OS Version</th>
                 <th>Registered On</th>
                 <th>Last Heartbeat</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th style="text-align: center;">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for device in devices %}
             <tr>
-                <td><a href="{{ url_for('routes.device_routes.single_device', id=device.id) }}">
-                        {{ device.device_name }}
-                        {% if device.rejoin_requested %}
-                        <span style="color:orange;">(Rejoin Requested)</span>
-                        {% endif %}
-                    </a></td>
-                <td>{{ device.os_version }}</td>
-                <td>{{ device.timestamp }}</td>
-                <td>{{ device.last_heartbeat or 'No heartbeats yet' }}</td>
+                <td style="text-align: center;">{{ device.id }}</td>
                 <td>
                     {% if device.is_online() %}
                     <span style="color:green">Online</span>
@@ -31,23 +33,40 @@
                     <span style="color:red">Offline</span>
                     {% endif %}
                 </td>
-                <td>
-                    <form action="{{ url_for('routes.device_routes.post_toggle_watchlist_device', id=device.id) }}"
-                        method="POST" style="display:inline;">
-                        {% if device.on_watchlist %}
-                        <button type="submit" class="button red-button">Remove</button>
-                        {% else %}
-                        <button type="submit" class="button green-button">Add</button>
-                        {% endif %}
-                    </form>
-                    <form action="{{ url_for('routes.device_routes.post_toggle_restrict_device', id=device.id) }}"
-                        method="POST" style="display:inline;">
-                        {% if device.can_view_info %}
-                        <button type="submit" class="button red-button">Restrict</button>
-                        {% else %}
-                        <button type="submit" class="button green-button">Unrestrict</button>
-                        {% endif %}
-                    </form>
+                <td><a href="{{ url_for('routes.device_routes.single_device', id=device.id) }}">
+                        {{ device.device_name }}
+                    </a></td>
+                <td>{{ device.os_version }}</td>
+                <td>{{ device.timestamp }}</td>
+                <td>{{ device.last_heartbeat or 'No heartbeats yet' }}</td>
+                <td style="text-align: center;">
+                    <div class="action-buttons">
+                        <form action="{{ url_for('routes.device_routes.post_toggle_watchlist_device', id=device.id) }}"
+                            method="POST" style="display:inline;">
+                            <button type="submit" class="icon-button">
+                                {% if device.on_watchlist %}
+                                <img src="{{ url_for('static', filename='images/eye-on.svg') }}" class="red-icon"
+                                    alt="Remove from Watchlist" />
+                                {% else %}
+                                <img src="{{ url_for('static', filename='images/eye-off.svg') }}" class="green-icon"
+                                    alt="Add to Watchlist" />
+                                {% endif %}
+                            </button>
+                        </form>
+
+                        <form action="{{ url_for('routes.device_routes.post_toggle_restrict_device', id=device.id) }}"
+                            method="POST" style="display:inline;">
+                            <button type="submit" class="icon-button">
+                                {% if device.can_view_info %}
+                                <img src="{{ url_for('static', filename='images/lock-off.svg') }}" class="red-icon"
+                                    alt="Restrict" />
+                                {% else %}
+                                <img src="{{ url_for('static', filename='images/lock-on.svg') }}" class="green-icon"
+                                    alt="Unrestrict" />
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
