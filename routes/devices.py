@@ -1,19 +1,28 @@
 from quart import Blueprint, render_template, request, redirect, url_for, flash, current_app, jsonify
 from sqlalchemy.future import select
 from sqlalchemy import func
-from models import Device
+from sqlalchemy.orm import joinedload
+from models import Device, DeviceRequest
 from config import Config
 from nominatim import get_location_from_coordinates
 from quart_auth import login_required, current_user
 
 device_routes = Blueprint('device_routes', __name__)
 
+from sqlalchemy.orm import joinedload
+
 @device_routes.route('/devices')
 @login_required
 async def devices():
     async with Config.AsyncSessionLocal() as session:
-        result = await session.execute(select(Device))
-        devices = result.scalars().all()
+        deviceResult = await session.execute(select(Device))
+        devices = deviceResult.scalars().all()
+
+        requestResult = await session.execute(
+            select(DeviceRequest).options(joinedload(DeviceRequest.device)).filter_by(status='pending', request_type='rejoin_watchlist')
+        )
+        requests = requestResult.scalars().all()
+
         def sort_key(device):
             if not device.on_watchlist:
                 return 2
@@ -23,7 +32,60 @@ async def devices():
                 return 1
 
         devices.sort(key=sort_key)
-    return await render_template("devices.html", devices=devices)
+
+    return await render_template("devices.html", devices=devices, requests=requests)
+
+
+@device_routes.route('/request/<int:id>/approve', methods=['POST'])
+@login_required
+async def approve_rejoin_request(id):
+    async with Config.AsyncSessionLocal() as session:
+        request_result = await session.execute(
+            select(DeviceRequest).options(joinedload(DeviceRequest.device)).filter_by(id=id)
+        )
+        request = request_result.scalars().first()
+
+        if request and request.status == 'pending':
+            request.status = 'approved'
+            request.resolved = True
+            request.resolved_timestamp = func.current_timestamp()
+            
+            if request.device:
+                request.device.on_watchlist = True
+
+            await session.commit()
+
+            await flash(f"Rejoin request for {request.device.device_name} approved.", 'success')
+        else:
+            await flash("Request not found or already processed.", 'error')
+
+    return redirect(url_for('routes.device_routes.devices'))
+
+
+
+@device_routes.route('/request/<int:id>/deny', methods=['POST'])
+@login_required
+async def deny_rejoin_request(id):
+    async with Config.AsyncSessionLocal() as session:
+        request_result = await session.execute(
+            select(DeviceRequest).options(joinedload(DeviceRequest.device)).filter_by(id=id)
+        )
+        request = request_result.scalars().first()
+
+        if request and request.status == 'pending':
+            request.status = 'denied'
+            request.resolved = True
+            request.resolved_timestamp = func.current_timestamp()
+
+            await session.commit()
+
+            await flash(f"Rejoin request for {request.device.device_name} denied.", 'success')
+        else:
+            await flash("Request not found or already processed.", 'error')
+
+    return redirect(url_for('routes.device_routes.devices'))
+
+
 
 @device_routes.route('/devices/<int:id>')
 @login_required
@@ -93,34 +155,34 @@ async def get_device_info():
         
         return jsonify({"device_info": device.to_dict()})
 
-# @device_routes.route('/device/update', methods=['POST'])
-# async def api_update_device():
-#     try:
-#         data = await request.json
-#         hardware_id = data.get('hardware_id')
+@device_routes.route('/device/update', methods=['POST'])
+async def api_update_device():
+    try:
+        data = await request.json
+        hardware_id = data.get('hardware_id')
 
-#         if not hardware_id:
-#             return jsonify({"error": "Hardware ID is required"}), 400
+        if not hardware_id:
+            return jsonify({"error": "Hardware ID is required"}), 400
 
-#         async with Config.AsyncSessionLocal() as session:
-#             result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
-#             device = result.scalars().first()
+        async with Config.AsyncSessionLocal() as session:
+            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
+            device = result.scalars().first()
 
-#             if not device:
-#                 return jsonify({"error": "Device not found."}), 404
+            if not device:
+                return jsonify({"error": "Device not found."}), 404
 
-#             if not device.on_watchlist:
-#                 return jsonify({"error": "Device is off the watchlist."}), 403
+            if not device.on_watchlist:
+                return jsonify({"error": "Device is off the watchlist."}), 403
 
-#             device.device_name = data.get('device_name', device.device_name)
-#             device.os_version = data.get('os_version', device.os_version)
-#             await session.commit()
+            device.device_name = data.get('device_name', device.device_name)
+            device.os_version = data.get('os_version', device.os_version)
+            await session.commit()
 
-#             return jsonify({"message": f"Device {device.device_name} updated successfully."}), 200
+            return jsonify({"message": f"Device {device.device_name} updated successfully."}), 200
 
-#     except Exception as e:
-#         current_app.logger.error(f"An error occurred: {str(e)}")
-#         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+    except Exception as e:
+        current_app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 @device_routes.route('/device', methods=['POST'])
 async def api_add_device():
@@ -168,13 +230,19 @@ async def api_device_heartbeat():
             
             if not device.on_watchlist:
                 current_app.logger.info(f"Device {device.device_name} off the watchlist tried to send heartbeat.")
-                return jsonify({"error": "This device is off the watchlist."}), 403
+                return jsonify({
+                    "error": "This device is off the watchlist.",
+                    "on_watchlist": device.on_watchlist
+                    }), 403
 
             device.last_heartbeat = func.current_timestamp()
             await session.commit()
 
             current_app.logger.info(f"Received heartbeat from {device.device_name}.")
-            return jsonify({"message": f"Heartbeat for device {device.device_name} received!"}), 200
+            return jsonify({
+                "message": f"Heartbeat for device {device.device_name} received!",
+                "on_watchlist": device.on_watchlist
+                }), 200
 
     except Exception as e:
         current_app.logger.error(f"An error occurred: {str(e)}")
@@ -205,3 +273,35 @@ async def api_can_device_view():
     except Exception as e:
         current_app.logger.error(f"An error occurred: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+@device_routes.route('/device/rejoin', methods=['POST'])
+async def request_watchlist_rejoin():
+    try:
+        data = await request.get_json()
+        hardware_id = data.get('hardware_id')
+        
+        async with Config.AsyncSessionLocal() as session:
+            result = await session.execute(select(Device).filter_by(hardware_id=hardware_id))
+            device = result.scalars().first()
+
+            if device and not device.on_watchlist:
+                existing_request = await session.execute(
+                    select(DeviceRequest).filter_by(device_id=device.id, status='pending')
+                )
+                if existing_request.scalar():
+                    return jsonify({"message": "A rejoin request is already pending."}), 400
+
+                new_request = DeviceRequest(device_id=device.id, status='pending', request_type='rejoin_watchlist')
+                session.add(new_request)
+                await session.commit()
+
+                current_app.logger.info(f"Device {device.device_name} requested to be re-added to the watchlist.")
+                return jsonify({"message": "Rejoin request submitted."}), 200
+
+            return jsonify({"message": "Device is already on the watchlist or does not exist."}), 400
+    except Exception as e:
+        current_app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+
+

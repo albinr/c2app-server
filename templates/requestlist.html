@@ -1,0 +1,30 @@
+{% if requests %}
+<div class="device-request-container">
+    <h1>Requests</h1>
+    <div class="request-list">
+        {% for request in requests %}
+        <div class="single-request">
+            <p>Name: {{ request.device.device_name }}</p>
+            <p>Type: {{ request.request_type }}</p>
+            <p>Time: {{ request.request_timestamp }}</p>
+            <p>Status: {{ request.status }}</p>
+            <p>
+                {% if request.status == 'pending' %}
+            <form action="{{ url_for('routes.device_routes.approve_rejoin_request', id=request.id) }}" method="POST"
+                style="display:inline;">
+                <button type="submit" class="button green-button">Approve</button>
+            </form>
+            <form action="{{ url_for('routes.device_routes.deny_rejoin_request', id=request.id) }}" method="POST"
+                style="display:inline;">
+                <button type="submit" class="button red-button">Deny</button>
+            </form>
+            {% else %}
+            <span>{{ request.status|capitalize }}</span>
+            {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+{% endif %}

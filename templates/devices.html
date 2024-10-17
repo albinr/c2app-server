@@ -1,60 +1,8 @@
-{% include 'header.html' %}
+{% include "header.html" %}
 
-<div class="container">
-    <h1>Device Watchlist</h1>
-
-    {% if devices %}
-    <table class="device-table">
-        <thead>
-            <tr>
-                <th>Device Name</th>
-                <th>OS Version</th>
-                <th>Registered On</th>
-                <th>Last Heartbeat</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for device in devices %}
-            <tr>
-                <td><a href="{{ url_for('routes.device_routes.single_device', id=device.id) }}">{{ device.device_name }}</a></td>
-                <td>{{ device.os_version }}</td>
-                <td>{{ device.timestamp }}</td>
-                <td>{{ device.last_heartbeat or 'No heartbeats yet' }}</td>
-                <td>
-                    {% if device.is_online() %}
-                    <span style="color:green">Online</span>
-                    {% else %}
-                    <span style="color:red">Offline</span>
-                    {% endif %}
-                </td>
-                <td>
-                    <form action="{{ url_for('routes.device_routes.post_toggle_watchlist_device', id=device.id) }}" method="POST"
-                        style="display:inline;">
-                        {% if device.on_watchlist %}
-                        <button type="submit" class="button red-button">Remove</button>
-                        {% else %}
-                        <button type="submit" class="button green-button">Add</button>
-                        {% endif %}
-                    </form>
-                    <form action="{{ url_for('routes.device_routes.post_toggle_restrict_device', id=device.id) }}" method="POST"
-                        style="display:inline;">
-                        {% if device.can_view_info %}
-                        <button type="submit" class="button red-button">Restrict</button>
-                        {% else %}
-                        <button type="submit" class="button green-button">Unrestrict</button>
-                        {% endif %}
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No devices registered yet.</p>
-    {% endif %}
-
+<div class="container row-layout">
+    {% include "watchlist.html" %}
+    {% include "requestlist.html" %}
 </div>
 
-{% include 'footer.html' %}
+{% include "footer.html" %}

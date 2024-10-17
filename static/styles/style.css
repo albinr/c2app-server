@@ -25,12 +25,19 @@ h1 {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+.row-layout {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
 /* Footer */
@@ -72,7 +79,17 @@ nav ul li.active a {
     text-decoration: underline;
 }
 
-/* Table Styles */
+/* Watchlist */
+
+.watchlist-container {
+    flex: 3;
+    margin-right: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .device-table {
     width: 100%;
     border-collapse: collapse;
@@ -101,27 +118,6 @@ nav ul li.active a {
 }
 
 /* Button Styles */
-/* button {
-    padding: 8px 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-button.delete {
-    background-color: #dc3545;
-}
-
-button.delete:hover {
-    background-color: #c82333;
-} */
 
 .button {
     color: darkgray;
@@ -175,18 +171,18 @@ button.delete:hover {
 
 .red-button {
     color: #fff;
-    background-color: red;
+    background-color: #dc3545;
     /* // background-image: linear-gradient(red, darken(red, 20%)); */
-    border-color: darken(red, 20%);
+    border-color: darken(#dc3545, 20%);
 }
 
 .red-button:hover {
-    background-color: darken(red, 30%);
+    background-color: darken(#dc3545, 30%);
     background-image: none;
 }
 
 .red-button:active {
-    background-color: darken(red, 35%);
+    background-color: darken(#dc3545, 35%);
     background-image: none;
 }
 
@@ -209,18 +205,18 @@ button.delete:hover {
 
 .green-button {
     color: #fff;
-    background-color: green;
+    background-color: #28a745;
     /* // background-image: linear-gradient(green, darken(green, 20%)); */
-    border-color: darken(green, 20%);
+    border-color: darken(#28a745, 20%);
 }
 
 .green-button:hover {
-    background-color: darken(green, 30%);
+    background-color: darken(#28a745, 30%);
     background-image: none;
 }
 
 .green-button:active {
-    background-color: darken(green, 35%);
+    background-color: darken(#28a745, 35%);
     background-image: none;
 }
 
@@ -233,7 +229,9 @@ button.delete:hover {
     border: 1px solid #ccc;
     padding: 20px;
     overflow-y: auto;
+    width: 100%;
     max-height: 500px;
+    max-width: 700px;
 }
 .log-line {
     font-family: monospace;
@@ -321,5 +319,72 @@ button.delete:hover {
 .applications-section ul {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+/* Requests */
+
+.device-request-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.device-request-container h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #343a40;
+    text-align: center;
+}
+
+.request-list {
+    display: flex;
+    flex-direction: column;   
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-request {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.single-request:hover {
+    transform: translateY(-5px);
+}
+
+.single-request p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #495057;
+}
+
+.single-request .button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.single-request .green-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.single-request .red-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.single-request .button:hover {
+    opacity: 0.9;
 }
 

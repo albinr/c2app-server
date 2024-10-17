@@ -30,7 +30,7 @@ async def signup():
             await session.commit()
 
             await flash('User created successfully! You can now log in.')
-            return redirect(url_for('routes.login'))
+            return redirect(url_for('routes.auth_routes.login'))
 
     return await render_template("signup.html")
 

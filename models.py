@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, String, Text, DateTime, func, Boolean
+from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Column, Integer, String, Text, DateTime, func, Boolean, ForeignKey
 from quart_auth import AuthUser
 from flask_bcrypt import Bcrypt
 
@@ -9,7 +9,7 @@ bcrypt = Bcrypt()
 Base = declarative_base()
 
 class Device(Base):
-    __tablename__ = 'devices'
+    __tablename__ = "devices"
     id = Column(Integer, primary_key=True)
     hardware_id = Column(String(200), nullable=False, index=True, unique=True)
     device_name = Column(String(50), nullable=False)
@@ -19,18 +19,36 @@ class Device(Base):
     timestamp = Column(DateTime, default=func.current_timestamp())
     last_heartbeat = Column(DateTime)
     on_watchlist = Column(Boolean, default=True)
+    rejoin_requested = Column(Boolean, default=False)
     can_view_info = Column(Boolean, default=False)
 
+    device_requests = relationship("DeviceRequest", back_populates="device")
 
     def is_online(self):
         return self.last_heartbeat and (datetime.utcnow() - self.last_heartbeat) < timedelta(seconds=60)
 
     def __repr__(self):
         return f"<Device {self.device_name}>"
+    
+
+class DeviceRequest(Base):
+    __tablename__ = "device_requests"
+    id = Column(Integer, primary_key=True)
+    device_id = Column(Integer, ForeignKey("devices.id"), nullable=False)
+    request_timestamp = Column(DateTime, default=func.current_timestamp())
+    status = Column(String(50), default="pending")  # "pending", "approved" or "denied"
+    resolved = Column(Boolean, default=False)
+    resolved_timestamp = Column(DateTime)
+    request_type = Column(String(50), nullable=False)  # "rejoin_watchlist" or "command_execution", etc.
+
+    device = relationship("Device", back_populates="device_requests")
+
+    def __repr__(self):
+        return f"<RejoinRequest for Device ID {self.device_id}, Status: {self.status}>"
 
 
 class User(Base, AuthUser):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True)
     username = Column(String(150), unique=True, nullable=False)
@@ -41,9 +59,7 @@ class User(Base, AuthUser):
         return self.username
 
     def set_password(self, password):
-        # Use bcrypt to hash passwords
-        self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        self.password_hash = bcrypt.generate_password_hash(password).decode("utf-8")
 
     def check_password(self, password):
-        # Check if the given password matches the stored hashed password
         return bcrypt.check_password_hash(self.password_hash, password)
