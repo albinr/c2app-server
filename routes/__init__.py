@@ -4,7 +4,7 @@ from routes.auth import auth_routes
 from routes.devices import device_routes
 from routes.file_upload import file_upload_routes
 from routes.logs import logs_routes
-from routes.commands import command_routes
+from routes.command import command_routes
 from routes.main import main_routes
 
 routes = Blueprint('routes', __name__)

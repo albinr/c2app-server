@@ -1,0 +1,89 @@
+[33mcommit a815be676a7c5930b41fe9a22c237b6deaf1aa9a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Thu Oct 17 19:45:31 2024 +0200
+
+    added icons for watchlist actions and updated style
+
+[33mcommit f95e69b47e5b83bdaed999fa39ad7445997803ed[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Thu Oct 17 15:31:26 2024 +0200
+
+    added request rejoin watchlist funcitonality
+
+[33mcommit 3fd9c54e195750dd07f91d7f5c6ebebe179eabc8[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Fri Oct 11 09:16:22 2024 +0200
+
+    db update
+
+[33mcommit b80302f6e57292772002bcc77a02bdc2d134dd8e[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Thu Oct 10 20:45:32 2024 +0200
+
+    updated code structure
+
+[33mcommit 7912584580dfac106e933b3fb9bb2178064ef0b7[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Thu Oct 10 17:19:59 2024 +0200
+
+    commit before route split
+
+[33mcommit 1385be3851e2d8ce422d11ac62d958f049acdd47[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 21:51:18 2024 +0200
+
+    update req
+
+[33mcommit 286afcc83ca9aa24cf261ff7c7a63c10d9375aa7[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 21:48:21 2024 +0200
+
+    hopfully last update to req.txt
+
+[33mcommit 351a041e902e29b83a9337b87c3b8ddde1812b39[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 21:43:44 2024 +0200
+
+    removed unneccesary requirements
+
+[33mcommit c9b6cec4a2eb072efb36cf5ad3c4d9da01a3184c[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 21:40:05 2024 +0200
+
+    fix for droplet
+
+[33mcommit 42e012ee3b2dd0b014f4a3a3ff583f7769a82694[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 21:38:33 2024 +0200
+
+    updated requirements.txt
+
+[33mcommit cd8b2593ac3834a5a8a74b52a6ac99095e5923c2[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 20:45:55 2024 +0200
+
+    updated requirements.txt
+
+[33mcommit c5f9355677f1e87a50cd5a73237631d77baa4cc6[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Tue Oct 8 20:36:05 2024 +0200
+
+    added route for device info updates
+
+[33mcommit d6ea3fb919b52cadc97a2cc1e1bc9a7ca661fd02[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Mon Oct 7 17:01:41 2024 +0200
+
+    updated requirements
+
+[33mcommit 72d6e474bbfe1e44bc1be9f06ad864353fb47fac[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Mon Oct 7 16:46:00 2024 +0200
+
+    moved files out of server folder
+
+[33mcommit 0d350ec8c3996612360a270642ea1ca7db7b95ee[m
+Author: Albin Ryberg <alry23@student.bth.se>
+Date:   Mon Oct 7 16:42:02 2024 +0200
+
+    first commit

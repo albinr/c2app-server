@@ -9,8 +9,6 @@ from quart_auth import login_required, current_user
 
 device_routes = Blueprint('device_routes', __name__)
 
-from sqlalchemy.orm import joinedload
-
 @device_routes.route('/devices')
 @login_required
 async def devices():
@@ -302,6 +300,4 @@ async def request_watchlist_rejoin():
     except Exception as e:
         current_app.logger.error(f"An error occurred: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
-
-
 
