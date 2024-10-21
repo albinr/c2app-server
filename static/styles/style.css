@@ -430,3 +430,42 @@ nav ul li.active a {
     text-align: center;
     background-color: lightblue;
 }
+
+/* Device terminal styles */
+.terminal-container {
+    background-color: black;
+    color: lime;
+    font-family: monospace;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#terminal-output {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #444;
+    padding: 10px;
+    background-color: black;
+    color: lime;
+}
+
+.terminal-input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#command-input {
+    flex: 1;
+    background-color: black;
+    color: lime;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    padding-left: 5px;
+}
+
+.terminal-prompt {
+    color: lime;
+    margin-right: 5px;
+}

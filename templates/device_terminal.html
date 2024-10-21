@@ -1,0 +1,73 @@
+{% include "header.html" %}
+<div class="container">
+    <div class="terminal-container">
+        <h2>Device Terminal - {{ device.device_name }}</h2>
+        <div id="terminal-output"></div>
+        <div class="terminal-input-container">
+            <span class="terminal-prompt">$</span>
+            <input type="text" id="command-input" placeholder="Enter command..." autocomplete="off">
+        </div>
+    </div>
+</div>
+
+<script>
+    const socket = new WebSocket(`ws://${window.location.host}/ws/admin`);
+    const terminalOutput = document.getElementById('terminal-output');
+    const hardwareId = "{{ device.hardware_id }}";
+    const commandInput = document.getElementById('command-input');
+
+    socket.onopen = () => {
+        console.log('WebSocket connection established');
+        addTerminalLine('> Connected to the server');
+    };
+
+    socket.onmessage = (event) => {
+        try {
+            const data = JSON.parse(event.data);
+            console.log('Message received from server:', data);
+            if (data.type === 'command_result') {
+                addTerminalLine(data.result);
+            } else if (data.type === 'success') {
+                addTerminalLine(data.message);
+            } else if (data.type === 'error') {
+                addTerminalLine(`Error: ${data.message}`);
+            } else {
+                addTerminalLine(`Unknown message type: ${JSON.stringify(data)}`);
+            }
+        } catch (e) {
+            console.error('Error parsing message from server:', event.data);
+            addTerminalLine('Error parsing server message');
+        }
+    };
+
+    socket.onclose = () => {
+        console.log('WebSocket connection closed');
+        addTerminalLine('> Connection closed');
+    };
+
+    socket.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        addTerminalLine('> WebSocket error occurred');
+    };
+
+    commandInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const command = commandInput.value.trim();
+            if (command) {
+                console.log(`Sending command: ${command}`);
+                socket.send(JSON.stringify({ type: 'command', hardware_id: hardwareId, command: command }));
+                addTerminalLine(`$ ${command}`);
+                commandInput.value = '';
+            }
+        }
+    });
+
+    function addTerminalLine(message) {
+        const newLine = document.createElement('div');
+        newLine.textContent = message;
+        terminalOutput.appendChild(newLine);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+</script>
+
+{% include "footer.html" %}

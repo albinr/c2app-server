@@ -26,6 +26,7 @@
             <form action="{{ url_for('routes.device_routes.post_delete_device', id=device.id) }}" method="POST" style="margin-top: 10px;">
                 <button type="submit" class="button red-button">Delete Device</button>
             </form>
+            <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}">Open terminal</a>
         </div>
 
         <div class="applications-section">
@@ -42,7 +43,6 @@
         </div>
     </div>
 
-    {% include 'terminal.html' with context %}
 </div>
 
 {% include 'footer.html' %}

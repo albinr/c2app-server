@@ -1,0 +1,129 @@
+2024-10-20 18:40:55,229 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:00,253 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:05,277 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:10,313 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:15,341 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:20,369 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:25,389 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:30,426 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:35,453 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:40,498 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:45,526 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:50,557 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:41:55,601 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:42:00,644 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:42:05,690 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-20 18:42:10,730 - ERROR - An error occurred: name 'check_if_terminal_open' is not defined
+2024-10-21 10:21:08,366 - ERROR - Exception on request GET /devices/5
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 97, in single_device
+    return await render_template("single-device.html", device=device)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 47, in render_template
+    return await _render(template, context, current_app._get_current_object())  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/templating.py", line 66, in _render
+    rendered_template = await template.render_async(context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1327, in render_async
+    return self.environment.handle_exception()
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/albinr/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1324, in <listcomp>
+    [n async for n in self.root_render_func(ctx)]  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/templates/single-device.html", line 29, in top-level template code
+    <a href="{{ url_for('device_routes.device_terminal', id=device.id) }}">Open terminal</a>
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'device_routes.device_terminal' with values ['id']. Did you mean 'routes.device_routes.device_terminal' instead?
+2024-10-21 11:46:45,706 - ERROR - Exception on websocket /ws/device/55c97bf4-7bea-11ef-a011-efb03faa974e
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 356, in websocket_command_execution
+    message = await ws.receive()
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/wrappers/websocket.py", line 56, in receive
+    return await self._receive()
+  File "/usr/lib/python3.10/asyncio/queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1415, in handle_websocket
+    return await self.full_dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1463, in full_dispatch_websocket
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1461, in full_dispatch_websocket
+    result = await self.dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1551, in dispatch_websocket
+    return await self.ensure_async(handler)(**websocket_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 385, in websocket_command_execution
+    await ws.close()  # Properly close the WebSocket connection
+TypeError: Websocket.close() missing 1 required positional argument: 'code'
+2024-10-21 11:46:45,712 - ERROR - Exception on websocket /ws/device/55c97bf4-7bea-11ef-a011-efb03faa974e
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 356, in websocket_command_execution
+    message = await ws.receive()
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/wrappers/websocket.py", line 56, in receive
+    return await self._receive()
+  File "/usr/lib/python3.10/asyncio/queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1415, in handle_websocket
+    return await self.full_dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1463, in full_dispatch_websocket
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1461, in full_dispatch_websocket
+    result = await self.dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1551, in dispatch_websocket
+    return await self.ensure_async(handler)(**websocket_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 385, in websocket_command_execution
+    await ws.close()  # Properly close the WebSocket connection
+TypeError: Websocket.close() missing 1 required positional argument: 'code'
+2024-10-21 11:46:49,836 - ERROR - Exception on websocket /ws/device/55c97bf4-7bea-11ef-a011-efb03faa974e
+Traceback (most recent call last):
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 356, in websocket_command_execution
+    message = await ws.receive()
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/wrappers/websocket.py", line 56, in receive
+    return await self._receive()
+  File "/usr/lib/python3.10/asyncio/queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1415, in handle_websocket
+    return await self.full_dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1463, in full_dispatch_websocket
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1461, in full_dispatch_websocket
+    result = await self.dispatch_websocket(websocket_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1551, in dispatch_websocket
+    return await self.ensure_async(handler)(**websocket_.view_args)  # type: ignore
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 385, in websocket_command_execution
+    await ws.close()  # Properly close the WebSocket connection
+TypeError: Websocket.close() missing 1 required positional argument: 'code'
