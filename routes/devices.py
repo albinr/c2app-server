@@ -317,7 +317,11 @@ async def device_terminal(id):
         
         if not device:
             await flash("Device not found.", 'error')
-            return redirect(url_for('device_routes.devices'))
+            return redirect(url_for('routes.device_routes.devices'))
+        
+        if not device.is_online():
+            await flash("Device not online.", 'error')
+            return redirect(url_for('routes.device_routes.devices'))
         
         open_terminals[device.hardware_id] = True
 

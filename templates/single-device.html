@@ -23,10 +23,12 @@
             <p><strong>Last Heartbeat:</strong> {{ device.last_heartbeat or "No heartbeats yet" }}</p>
             <p><strong>Timestamp:</strong> {{ device.timestamp }}</p>
 
-            <form action="{{ url_for('routes.device_routes.post_delete_device', id=device.id) }}" method="POST" style="margin-top: 10px;">
+            <form action="{{ url_for('routes.device_routes.post_delete_device', id=device.id) }}" method="POST"
+                style="margin-top: 10px;">
                 <button type="submit" class="button red-button">Delete Device</button>
             </form>
-            <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}">Open terminal</a>
+            <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}"
+                class="button blue-button">Open terminal</a>
         </div>
 
         <div class="applications-section">

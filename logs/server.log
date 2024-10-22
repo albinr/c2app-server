@@ -10465,3 +10465,267 @@ var
 2024-10-22 21:18:16,152 - INFO - Received heartbeat from albinxps.
 2024-10-22 21:18:25,663 - INFO - Server was pinged.
 2024-10-22 21:18:26,192 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:29:36,245 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 21:29:41,947 - INFO - Server was pinged.
+2024-10-22 21:29:41,980 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:29:52,016 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:02,040 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:02,065 - INFO - Server was pinged.
+2024-10-22 21:30:08,306 - INFO - User admin logged in.
+2024-10-22 21:30:12,071 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:16,012 - INFO - User AuthUser(auth_id=2, action=Action.PASS) opened a terminal for albinxps
+2024-10-22 21:30:16,375 - INFO - Client added: admin
+2024-10-22 21:30:22,084 - INFO - Server was pinged.
+2024-10-22 21:30:22,100 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:22,124 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:22,125 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-22 21:30:28,540 - INFO - User AuthUser(auth_id=2, action=Action.PASS) opened a terminal for albinxps
+2024-10-22 21:30:28,890 - INFO - Client added: admin
+2024-10-22 21:30:32,127 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:34,189 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:34,199 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-22 21:30:37,819 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:37,825 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-22 21:30:41,179 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:41,186 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-22 21:30:42,103 - INFO - Server was pinged.
+2024-10-22 21:30:42,194 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:47,859 - INFO - User AuthUser(auth_id=2, action=Action.PASS) closed a terminal for albinxps
+2024-10-22 21:30:47,862 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-22 21:30:47,863 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:52,218 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:30:54,667 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:30:56,869 - INFO - User AuthUser(auth_id=2, action=Action.PASS) closed a terminal for albinxps
+2024-10-22 21:31:02,126 - INFO - Server was pinged.
+2024-10-22 21:31:02,276 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:31:12,341 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:31:22,155 - INFO - Server was pinged.
+2024-10-22 21:31:22,375 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:06,840 - INFO - Server was pinged.
+2024-10-22 21:45:06,871 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:13,208 - INFO - User AuthUser(auth_id=2, action=Action.PASS) opened a terminal for albinxps
+2024-10-22 21:45:13,564 - INFO - Client added: admin
+2024-10-22 21:45:16,939 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:17,026 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:45:17,027 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-22 21:45:22,905 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-22 21:45:22,905 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:45:28,988 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 21:45:30,649 - INFO - Server was pinged.
+2024-10-22 21:45:30,691 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:35,917 - INFO - User albin logged in.
+2024-10-22 21:45:39,186 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-22 21:45:39,543 - INFO - Client added: admin
+2024-10-22 21:45:40,734 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:40,751 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:45:40,752 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-22 21:45:50,284 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-22 21:45:50,633 - INFO - Client added: admin
+2024-10-22 21:45:50,765 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:45:50,772 - INFO - Server was pinged.
+2024-10-22 21:45:59,086 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:45:59,096 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-22 21:46:00,809 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:46:01,849 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for albinxps
+2024-10-22 21:46:01,852 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-22 21:46:01,853 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-22 21:46:10,795 - INFO - Server was pinged.
+2024-10-22 21:46:10,840 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:46:20,875 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:46:30,815 - INFO - Server was pinged.
+2024-10-22 21:46:30,906 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:46:40,934 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:46:50,844 - INFO - Server was pinged.
+2024-10-22 21:46:50,978 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:01,037 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:10,872 - INFO - Server was pinged.
+2024-10-22 21:47:11,097 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:21,136 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:30,901 - INFO - Server was pinged.
+2024-10-22 21:47:31,167 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:41,195 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:47:50,926 - INFO - Server was pinged.
+2024-10-22 21:47:51,230 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:01,288 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:10,943 - INFO - Server was pinged.
+2024-10-22 21:48:11,334 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:21,356 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:30,966 - INFO - Server was pinged.
+2024-10-22 21:48:31,423 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:41,459 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:48:50,991 - INFO - Server was pinged.
+2024-10-22 21:48:51,500 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:01,541 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:11,010 - INFO - Server was pinged.
+2024-10-22 21:49:11,595 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:21,623 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:31,027 - INFO - Server was pinged.
+2024-10-22 21:49:31,680 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:41,714 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:49:51,044 - INFO - Server was pinged.
+2024-10-22 21:49:51,763 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:50:01,824 - INFO - Received heartbeat from albinxps.
+2024-10-22 21:57:36,149 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 21:57:48,609 - INFO - User albin logged in.
+2024-10-22 21:57:55,544 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for Postman PC 5
+2024-10-22 21:57:55,901 - INFO - Client added: admin
+2024-10-22 21:58:02,370 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for Postman PC 5
+2024-10-22 21:58:28,400 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 21:58:39,948 - INFO - User albin logged in.
+2024-10-22 21:58:42,158 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for Postman PC 5
+2024-10-22 21:58:42,518 - INFO - Client added: admin
+2024-10-22 22:07:21,212 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:07:26,931 - INFO - User albin logged in.
+2024-10-22 22:09:25,190 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:09:30,943 - INFO - User albin logged in.
+2024-10-22 22:09:36,172 - INFO - Server was pinged.
+2024-10-22 22:09:36,209 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:09:46,256 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:09:56,286 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:09:56,295 - INFO - Server was pinged.
+2024-10-22 22:10:06,310 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:10:16,330 - INFO - Server was pinged.
+2024-10-22 22:10:16,353 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:10:26,386 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:10:36,360 - INFO - Server was pinged.
+2024-10-22 22:10:36,423 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:10:46,458 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:10:56,390 - INFO - Server was pinged.
+2024-10-22 22:10:56,500 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:11:06,533 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:11:16,418 - INFO - Server was pinged.
+2024-10-22 22:11:16,579 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:11:26,633 - INFO - Received heartbeat from albinxps.
+2024-10-22 22:11:38,207 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:11:52,930 - INFO - User albin logged in.
+2024-10-22 22:13:23,327 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:13:28,789 - INFO - User albin logged in.
+2024-10-22 22:15:22,032 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:15:30,053 - INFO - User albin logged in.
+2024-10-22 22:15:35,561 - ERROR - Exception on request GET /devices/8/terminal
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 324, in device_terminal
+    return redirect(url_for('device_routes.devices'))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'device_routes.devices'. Did you mean 'routes.device_routes.devices' instead?
+2024-10-22 22:15:51,110 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-22 22:15:56,128 - INFO - User albin logged in.

@@ -448,3 +448,28 @@ Traceback (most recent call last):
   File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 390, in device_websocket
     if not client.closed:
 AttributeError: 'Websocket' object has no attribute 'closed'. Did you mean: 'close'?
+2024-10-22 22:15:35,561 - ERROR - Exception on request GET /devices/8/terminal
+Traceback (most recent call last):
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1403, in handle_request
+    return await self.full_dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1441, in full_dispatch_request
+    result = await self.handle_user_exception(error)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1029, in handle_user_exception
+    raise error
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1439, in full_dispatch_request
+    result = await self.dispatch_request(request_context)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 1535, in dispatch_request
+    return await self.ensure_async(handler)(**request_.view_args)  # type: ignore
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart_auth/globals.py", line 64, in wrapper
+    return await current_app.ensure_async(func)(*args, **kwargs)
+  File "/home/albinr/git/bth/c2app-proj/c2app-server/routes/devices.py", line 324, in device_terminal
+    return redirect(url_for('device_routes.devices'))
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/helpers.py", line 180, in url_for
+    return current_app.url_for(
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 734, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/albinr/.local/lib/python3.10/site-packages/quart/app.py", line 732, in url_for
+    url = url_adapter.build(endpoint, values, method=_method, force_external=_external)
+  File "/home/albinr/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'device_routes.devices'. Did you mean 'routes.device_routes.devices' instead?

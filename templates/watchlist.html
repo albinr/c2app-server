@@ -66,6 +66,15 @@
                                 {% endif %}
                             </button>
                         </form>
+
+                        
+                        {% if device.is_online() %}
+                        <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}" class="icon-button">
+                            <img src="{{ url_for('static', filename='images/terminal.svg') }}" class="green-icon" alt="Open terminal" />
+                        </a>
+                        {% else %}
+                        {% endif %}
+
                     </div>
                 </td>
             </tr>
