@@ -1,5 +1,6 @@
 # routes/devices.py
 import json
+import asyncio
 
 from quart import Blueprint, render_template, request, redirect, url_for, flash, current_app, jsonify, websocket
 from quart_auth import login_required, current_user
@@ -12,6 +13,8 @@ from nominatim import get_location_from_coordinates
 from utils.websocket_manager import add_client, get_client, remove_client, get_all_clients
 
 device_routes = Blueprint('device_routes', __name__)
+
+open_terminals = {}
 
 @device_routes.route('/devices')
 @login_required
@@ -207,7 +210,7 @@ async def api_add_device():
 
     except Exception as e:
         return jsonify({"error": f"An error occurred: {str(e)}"}), 400
-
+    
 @device_routes.route('/device/heartbeat', methods=['POST'])
 async def api_device_heartbeat():
     try:
@@ -230,20 +233,25 @@ async def api_device_heartbeat():
                 return jsonify({
                     "error": "This device is off the watchlist.",
                     "on_watchlist": device.on_watchlist,
-                    }), 403
+                }), 403
 
             device.last_heartbeat = func.current_timestamp()
             await session.commit()
+
+            # Check if the client is already connected via WebSocket
+            is_socket_open = open_terminals.get(device.hardware_id, False)
 
             current_app.logger.info(f"Received heartbeat from {device.device_name}.")
             return jsonify({
                 "message": f"Heartbeat for device {device.device_name} received!",
                 "on_watchlist": device.on_watchlist,
-                }), 200
+                "open_socket": is_socket_open
+            }), 200
 
     except Exception as e:
         current_app.logger.error(f"An error occurred: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
 
 @device_routes.route('/device/can_view', methods=['POST'])
 async def api_can_device_view():
@@ -306,29 +314,55 @@ async def device_terminal(id):
     """Render a terminal interface for a specific device."""
     async with Config.AsyncSessionLocal() as session:
         device = await session.get(Device, id)
+        
         if not device:
             await flash("Device not found.", 'error')
             return redirect(url_for('device_routes.devices'))
         
+        open_terminals[device.hardware_id] = True
+
+        current_app.logger.info(f"User {current_user} opened a terminal for {device.device_name}")
+        
         return await render_template('device_terminal.html', device=device)
+
+@device_routes.route('/devices/<int:id>/terminal/close', methods=['POST'])
+@login_required
+async def close_device_terminal(id):
+    """Close the terminal interface for a specific device."""
+    async with Config.AsyncSessionLocal() as session:
+        device = await session.get(Device, id)
+        if device:
+            websocket_client = await get_client(device.hardware_id)
+            if websocket_client:
+                await websocket_client.send(json.dumps({
+                    "type": "disconnect",
+                    "message": "The terminal for this device has been closed."
+                }))
+                await websocket_client.close(code=1000)
+
+            open_terminals[device.hardware_id] = False
+            await remove_client(device.hardware_id)
+            await flash(f"Terminal for {device.device_name} closed.", 'success')
+        else:
+            await flash("Device not found.", 'error')
+        current_app.logger.info(f"User {current_user} closed a terminal for {device.device_name}")
+    
+    return redirect(url_for('routes.device_routes.devices'))
+
 
 @device_routes.websocket('/ws/device/<hardware_id>')
 async def device_websocket(hardware_id):
-    client = websocket._get_current_object()  # Get the WebSocket object for the client
-    await add_client(hardware_id, client)  # Add this client to your WebSocket manager
+    client = websocket._get_current_object()
+    await add_client(hardware_id, client)
 
     try:
         while True:
-            message = await client.receive()  # Wait for incoming messages
+            message = await client.receive()
             if message:
                 data = json.loads(message)
-                # Process the received message based on its type
                 if data.get("type") == "command":
                     command = data.get("command")
                     current_app.logger.info(f"Received command '{command}' for {hardware_id}")
-                    
-                    # Execute command and send back result (handled by client app)
-
                 elif data.get("type") == "command_result":
                     result = data.get("result")
                     current_app.logger.info(f"Command result received for {hardware_id}: {result}")
@@ -342,20 +376,31 @@ async def device_websocket(hardware_id):
                         }))
                     else:
                         current_app.logger.info("No admin client connected to receive command result")
+                elif data.get("type") == "disconnect":
+                    await client.send(json.dumps({"type": "disconnect", "message": "Server requested disconnect"}))
+                    break
 
+    except asyncio.CancelledError:
+        current_app.logger.info(f"WebSocket connection cancelled for {hardware_id}.")
     except Exception as e:
         current_app.logger.error(f"WebSocket error with {hardware_id}: {str(e)}")
     finally:
-        await remove_client(hardware_id)  # Remove the client when disconnected
+        open_terminals.pop(hardware_id, None)
+        await remove_client(hardware_id)
+        if not client.close:
+            try:
+                await client.close(code=1000)
+            except RuntimeError as e:
+                current_app.logger.error(f"Error closing WebSocket for {hardware_id}: {e}")
         current_app.logger.info(f"WebSocket connection closed for {hardware_id}")
 
 @device_routes.websocket('/ws/admin')
 async def admin_websocket():
-    admin_client = websocket._get_current_object()  # Get the WebSocket object for the admin client
-    await add_client("admin", admin_client)  # Store the admin client connection with the key "admin"
+    admin_client = websocket._get_current_object()
+    await add_client("admin", admin_client)
     try:
         while True:
-            message = await admin_client.receive()  # Wait for incoming messages
+            message = await admin_client.receive()
             if message:
                 data = json.loads(message)
                 if data.get("type") == "command":
@@ -363,7 +408,6 @@ async def admin_websocket():
                     command = data.get("command")
                     current_app.logger.info(f"Admin sent command '{command}' to device {hardware_id}")
 
-                    # Find the client associated with the hardware_id
                     device_client = await get_client(hardware_id)
                     if device_client:
                         await device_client.send(json.dumps({"type": "command", "command": command}))

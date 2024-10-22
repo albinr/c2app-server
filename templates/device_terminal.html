@@ -2,10 +2,14 @@
 <div class="container">
     <div class="terminal-container">
         <h2>Device Terminal - {{ device.device_name }}</h2>
+        <form action="{{ url_for('routes.device_routes.close_device_terminal', id=device.id) }}" method="POST">
+            <button type="submit" class="button red-button">Close Terminal</button>
+        </form>
         <div id="terminal-output"></div>
         <div class="terminal-input-container">
             <span class="terminal-prompt">$</span>
             <input type="text" id="command-input" placeholder="Enter command..." autocomplete="off">
+            <button id="send-command">Send</button>
         </div>
     </div>
 </div>
@@ -13,60 +17,82 @@
 <script>
     const socket = new WebSocket(`ws://${window.location.host}/ws/admin`);
     const terminalOutput = document.getElementById('terminal-output');
-    const hardwareId = "{{ device.hardware_id }}";
     const commandInput = document.getElementById('command-input');
+    const hardwareId = "{{ device.hardware_id }}";
 
     socket.onopen = () => {
         console.log('WebSocket connection established');
-        addTerminalLine('> Connected to the server');
+        appendToTerminal('> Connected to the server');
+        appendToTerminal('> Waiting for client');
     };
 
     socket.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data);
             console.log('Message received from server:', data);
+            if (data.command){
+                appendToTerminal(`$ ${data.command}`)
+            }
             if (data.type === 'command_result') {
-                addTerminalLine(data.result);
+                appendToTerminal(formatOutput(data.result));
             } else if (data.type === 'success') {
-                addTerminalLine(data.message);
+                appendToTerminal(` ${data.message}`);
             } else if (data.type === 'error') {
-                addTerminalLine(`Error: ${data.message}`);
+                appendToTerminal(`Error: ${data.message}`);
             } else {
-                addTerminalLine(`Unknown message type: ${JSON.stringify(data)}`);
+                appendToTerminal(`Unknown message type: ${JSON.stringify(data)}`);
             }
         } catch (e) {
             console.error('Error parsing message from server:', event.data);
-            addTerminalLine('Error parsing server message');
+            appendToTerminal('> Error parsing server message');
         }
     };
 
     socket.onclose = () => {
         console.log('WebSocket connection closed');
-        addTerminalLine('> Connection closed');
+        appendToTerminal('> Connection closed');
     };
 
     socket.onerror = (error) => {
         console.error('WebSocket error:', error);
-        addTerminalLine('> WebSocket error occurred');
+        appendToTerminal('> WebSocket error occurred');
     };
+
+    document.getElementById('send-command').addEventListener('click', () => {
+        const command = commandInput.value.trim();
+        if (command) {
+            console.log(`Sending command: ${command}`);
+            socket.send(JSON.stringify({ type: 'command', hardware_id: hardwareId, command: command }));
+            commandInput.value = '';
+            appendToTerminal(`$ ${command}`);
+        }
+    });
 
     commandInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-            const command = commandInput.value.trim();
+            const command = event.target.value.trim();
             if (command) {
                 console.log(`Sending command: ${command}`);
                 socket.send(JSON.stringify({ type: 'command', hardware_id: hardwareId, command: command }));
-                addTerminalLine(`$ ${command}`);
-                commandInput.value = '';
+                event.target.value = '';
+                appendToTerminal(`$ ${command}`);
             }
         }
     });
 
-    function addTerminalLine(message) {
-        const newLine = document.createElement('div');
-        newLine.textContent = message;
-        terminalOutput.appendChild(newLine);
+    document.getElementById('clear-output').addEventListener('click', () => {
+        terminalOutput.textContent = '';
+    });
+
+    function appendToTerminal(text) {
+        const line = document.createElement('div');
+        line.textContent = text;
+        terminalOutput.appendChild(line);
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function formatOutput(output) {
+        return output.split('\n').map(line => `${line}`).join('\n');
     }
 </script>
 
