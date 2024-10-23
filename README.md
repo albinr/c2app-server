@@ -19,7 +19,7 @@ Ensure you have the following dependencies installed:
 
 Install dependencies with:
 
-```console
+```bash
 pip install -r requirements.txt
 ```
 
@@ -34,7 +34,7 @@ Make sure the config.py file is configured according to your environment.
 
 To run tests (unit and integration tests), use the following command:
 
-```console
+```bash
 pytest 
 ```
 
@@ -43,7 +43,7 @@ Ensure all dependencies are installed and correctly set up before running tests.
 ## Run
 To run the server, use:
 
-```console
+```bash
 python server.py
 ```
 

@@ -22,7 +22,8 @@ class Device(Base):
     rejoin_requested = Column(Boolean, default=False)
     can_view_info = Column(Boolean, default=False)
 
-    device_requests = relationship("DeviceRequest", back_populates="device")
+    # device_requests = relationship("DeviceRequest", back_populates="device")
+    device_requests = relationship("DeviceRequest", back_populates="device", cascade="all, delete-orphan")
 
     def is_online(self):
         return self.last_heartbeat and (datetime.utcnow() - self.last_heartbeat) < timedelta(seconds=60)
@@ -34,7 +35,8 @@ class Device(Base):
 class DeviceRequest(Base):
     __tablename__ = "device_requests"
     id = Column(Integer, primary_key=True)
-    device_id = Column(Integer, ForeignKey("devices.id"), nullable=False)
+    # device_id = Column(Integer, ForeignKey("devices.id"), nullable=False)
+    device_id = Column(Integer, ForeignKey("devices.id", ondelete="CASCADE"), nullable=False)
     request_timestamp = Column(DateTime, default=func.current_timestamp())
     status = Column(String(50), default="pending")  # "pending", "approved" or "denied"
     resolved = Column(Boolean, default=False)
