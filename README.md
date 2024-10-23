@@ -19,7 +19,9 @@ Ensure you have the following dependencies installed:
 
 Install dependencies with:
 
+```console
 pip install -r requirements.txt
+```
 
 ## Build
 
@@ -32,17 +34,18 @@ Make sure the config.py file is configured according to your environment.
 
 To run tests (unit and integration tests), use the following command:
 
-pytest tests/
+```console
+pytest 
+```
+
 Ensure all dependencies are installed and correctly set up before running tests.
 
 ## Run
 To run the server, use:
 
+```console
 python server.py
+```
 
-
-##License
+## License
 The C2 Security Application Server is licensed under MIT License. See the LICENSE file for details.
-
-
-This template provides the necessary details while following a structure similar to the client’s R
