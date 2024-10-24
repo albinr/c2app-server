@@ -11029,3 +11029,209 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint fail
 2024-10-24 00:04:38,741 - INFO - New device: albinxps added to database.
 2024-10-24 00:04:40,828 - INFO - Received heartbeat from albinxps.
 2024-10-24 00:04:52,890 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:08:33,694 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-24 15:14:12,262 - INFO - Server was pinged.
+2024-10-24 15:14:12,299 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:14:22,329 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:14:32,227 - INFO - User albin logged in.
+2024-10-24 15:14:32,356 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:14:32,385 - INFO - Server was pinged.
+2024-10-24 15:14:34,945 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-24 15:14:35,296 - INFO - Client added: admin
+2024-10-24 15:14:42,396 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:14:42,410 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:14:42,412 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-24 15:14:44,489 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:14:44,500 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-24 15:14:46,821 - INFO - Admin sent command 'docker ps' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:14:47,017 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+2024-10-24 15:14:52,411 - INFO - Server was pinged.
+2024-10-24 15:14:52,436 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:14:52,471 - INFO - Admin sent command 'docker network ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:14:52,518 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: NETWORK ID     NAME                  DRIVER    SCOPE
+071948f00263   bridge                bridge    local
+c90168143c47   bthloggen_dbwebb      bridge    local
+f303bdf29c53   dbwebb-maze-network   bridge    local
+23b15af288f5   host                  host      local
+d5b883c53573   none                  null      local
+2024-10-24 15:15:02,462 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:15:12,440 - INFO - Server was pinged.
+2024-10-24 15:15:12,491 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:15:22,532 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:15:32,468 - INFO - Server was pinged.
+2024-10-24 15:15:32,569 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:15:42,607 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:15:52,500 - INFO - Server was pinged.
+2024-10-24 15:15:52,638 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:02,693 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:12,527 - INFO - Server was pinged.
+2024-10-24 15:16:12,733 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:22,790 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:32,548 - INFO - Server was pinged.
+2024-10-24 15:16:32,826 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:42,856 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:16:52,572 - INFO - Server was pinged.
+2024-10-24 15:16:52,910 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:02,964 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:12,603 - INFO - Server was pinged.
+2024-10-24 15:17:13,002 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:23,058 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:32,627 - INFO - Server was pinged.
+2024-10-24 15:17:33,109 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:43,146 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:17:52,656 - INFO - Server was pinged.
+2024-10-24 15:17:53,179 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:03,249 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:12,685 - INFO - Server was pinged.
+2024-10-24 15:18:13,283 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:23,340 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:32,713 - INFO - Server was pinged.
+2024-10-24 15:18:33,380 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:43,411 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:52,738 - INFO - Server was pinged.
+2024-10-24 15:18:53,442 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:18:58,122 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for albinxps
+2024-10-24 15:18:58,124 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-24 15:18:58,126 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:19:03,474 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:19:12,768 - INFO - Server was pinged.
+2024-10-24 15:19:13,506 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:19:23,534 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:19:32,782 - INFO - Server was pinged.
+2024-10-24 15:19:33,122 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-24 15:19:33,492 - INFO - Client added: admin
+2024-10-24 15:19:33,563 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:19:33,567 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:19:33,568 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-24 15:19:36,784 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:19:36,792 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-24 15:19:38,838 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for albinxps
+2024-10-24 15:19:38,840 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-24 15:19:38,841 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 15:19:43,620 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:19:52,804 - INFO - Server was pinged.
+2024-10-24 15:19:53,652 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:20:03,680 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:20:12,820 - INFO - Server was pinged.
+2024-10-24 15:20:13,711 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:20:23,742 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:20:32,843 - INFO - Server was pinged.
+2024-10-24 15:20:33,788 - INFO - Received heartbeat from albinxps.
+2024-10-24 15:20:43,822 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:01:56,678 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-24 16:04:33,883 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-24 16:04:55,738 - INFO - User albin logged in.
+2024-10-24 16:05:05,319 - INFO - Server was pinged.
+2024-10-24 16:05:05,351 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:05:15,390 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:05:25,440 - INFO - Server was pinged.
+2024-10-24 16:05:25,444 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:05:28,345 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-24 16:05:28,700 - INFO - Client added: admin
+2024-10-24 16:05:35,486 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:05:35,502 - INFO - Client added: 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 16:05:35,503 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: > Client Ready
+2024-10-24 16:05:36,582 - INFO - Admin sent command 'ls' to device 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 16:05:36,589 - INFO - Command result received for 55c97bf4-7bea-11ef-a011-efb03faa974e: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-24 16:05:40,859 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for albinxps
+2024-10-24 16:05:40,862 - INFO - WebSocket connection cancelled for 55c97bf4-7bea-11ef-a011-efb03faa974e.
+2024-10-24 16:05:40,862 - INFO - WebSocket connection closed for 55c97bf4-7bea-11ef-a011-efb03faa974e
+2024-10-24 16:05:45,468 - INFO - Server was pinged.
+2024-10-24 16:05:45,525 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:05:55,556 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:05,493 - INFO - Server was pinged.
+2024-10-24 16:06:05,592 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:15,623 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:25,515 - INFO - Server was pinged.
+2024-10-24 16:06:25,649 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:35,685 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:45,531 - INFO - Server was pinged.
+2024-10-24 16:06:45,716 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:06:55,742 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:07:05,555 - INFO - Server was pinged.
+2024-10-24 16:07:05,768 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:07:15,801 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:07:25,570 - INFO - Server was pinged.
+2024-10-24 16:07:25,831 - INFO - Received heartbeat from albinxps.
+2024-10-24 16:12:14,425 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-24 16:19:47,387 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-24 16:20:02,946 - INFO - User albin logged in.
+2024-10-24 16:20:06,785 - INFO - User 1 unrestricted device Postman 2.
+2024-10-24 16:20:07,846 - INFO - User 1 restricted device Postman 2.
+2024-10-24 16:20:08,860 - INFO - User 1 removed from the watchlist for device Postman 2.
+2024-10-24 16:20:10,520 - INFO - User 1 added to the watchlist for device Postman 2.
