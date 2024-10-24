@@ -4,11 +4,6 @@
 
 The C2 Security Application Server is the backend component of the C2 system designed for monitoring and managing endpoint devices. It facilitates communication between the admin interface and client devices, allowing for device monitoring, command execution, file management, and watchlist control. The server provides RESTful API endpoints for device management and uses WebSockets for real-time communication.
 
-## Architecture Overview
-
-![Architecture Diagram](path/to/architecture-diagram.png)
-*Add an architectural diagram showing the server's communication flow with client devices and the admin interface.*
-
 ## How to Use
 
 ### Prerequisites
@@ -31,12 +26,12 @@ Set up your environment variables (e.g., database URL, port configurations).
 Make sure the config.py file is configured according to your environment.
 
 ## Test
-
-To run tests (unit and integration tests), use the following command:
+Unit tests can be run using the built-in unittest module. Make sure all dependencies are installed, and then execute:
 
 ```bash
-pytest 
+python3 -m unittest discover -s tests
 ```
+This will discover and run all available tests and provide a summary of any issues.
 
 Ensure all dependencies are installed and correctly set up before running tests.
 
@@ -44,7 +39,7 @@ Ensure all dependencies are installed and correctly set up before running tests.
 To run the server, use:
 
 ```bash
-python server.py
+python3 server.py
 ```
 
 ## License

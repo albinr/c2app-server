@@ -11746,3 +11746,127 @@ var
 2024-10-24 19:28:55,208 - INFO - User albin logged in.
 2024-10-24 19:29:13,965 - INFO - User 1 deleted device Postman 9.
 2024-10-24 19:29:23,612 - INFO - User 1 deleted device Postman 3.
+2024-10-25 00:52:48,555 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-25 00:52:58,242 - INFO - Server was pinged.
+2024-10-25 00:52:58,278 - INFO - Received heartbeat from albinxps.
+2024-10-25 00:53:08,320 - INFO - Received heartbeat from albinxps.
+2024-10-25 00:53:18,343 - INFO - Received heartbeat from albinxps.
+2024-10-25 00:53:18,364 - INFO - Server was pinged.
+2024-10-25 00:53:28,371 - INFO - Received heartbeat from albinxps.
+2024-10-25 00:53:38,395 - INFO - Server was pinged.
+2024-10-25 00:58:20,886 - INFO - Server was pinged.
+2024-10-25 00:58:20,893 - INFO - New device: albinxps added to database.
+2024-10-25 00:58:20,929 - INFO - Received heartbeat from albinxps.
+2024-10-25 00:58:30,965 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:02:35,724 - INFO - Server was pinged.
+2024-10-25 01:02:35,756 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:02:45,821 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:02:55,845 - INFO - Server was pinged.
+2024-10-25 01:02:55,859 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:05,895 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:15,871 - INFO - Server was pinged.
+2024-10-25 01:03:15,933 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:25,970 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:35,906 - INFO - Server was pinged.
+2024-10-25 01:03:36,017 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:46,044 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:03:55,931 - INFO - Server was pinged.
+2024-10-25 01:03:56,097 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:04:06,142 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:04:15,955 - INFO - Server was pinged.
+2024-10-25 01:04:16,177 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:04:26,219 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:04:35,992 - INFO - Server was pinged.
+2024-10-25 01:12:21,591 - INFO - Server was pinged.
+2024-10-25 01:12:21,626 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:12:31,659 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:12:41,696 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:12:41,717 - INFO - Server was pinged.
+2024-10-25 01:12:51,738 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:16:02,915 - INFO - Server was pinged.
+2024-10-25 01:16:02,943 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:16:38,114 - INFO - Server was pinged.
+2024-10-25 01:16:38,139 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:16:48,158 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:16:58,191 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:16:58,236 - INFO - Server was pinged.
+2024-10-25 01:17:08,232 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:17:18,259 - INFO - Server was pinged.
+2024-10-25 01:17:18,268 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:17:28,301 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:17:38,285 - INFO - Server was pinged.
+2024-10-25 01:17:38,333 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:17:48,398 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:17:58,313 - INFO - Server was pinged.
+2024-10-25 01:17:58,444 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:08,477 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:18,340 - INFO - Server was pinged.
+2024-10-25 01:18:18,541 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:28,569 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:38,356 - INFO - Server was pinged.
+2024-10-25 01:18:38,601 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:48,632 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:18:58,376 - INFO - Server was pinged.
+2024-10-25 01:18:58,662 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:19:08,692 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:19:18,388 - INFO - Server was pinged.
+2024-10-25 01:19:18,722 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:21:37,348 - INFO - Server was pinged.
+2024-10-25 01:21:37,353 - INFO - New device: albinxps added to database.
+2024-10-25 01:21:37,388 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:21:47,413 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:21:57,444 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:21:57,471 - INFO - Server was pinged.
+2024-10-25 01:22:07,506 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:22:17,494 - INFO - Server was pinged.
+2024-10-25 01:22:17,534 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:22:27,575 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:25:33,299 - INFO - Server was pinged.
+2024-10-25 01:25:33,327 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:25:43,369 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:25:44,477 - INFO - User albin logged in.
+2024-10-25 01:25:53,401 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:25:53,413 - INFO - Server was pinged.
+2024-10-25 01:25:59,530 - INFO - User 1 deleted device albinxps.
+2024-10-25 01:26:03,436 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:26:13,420 - INFO - Server was pinged.
+2024-10-25 01:26:13,464 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:26:19,941 - INFO - User AuthUser(auth_id=1, action=Action.PASS) opened a terminal for albinxps
+2024-10-25 01:26:20,288 - INFO - Client added: admin
+2024-10-25 01:26:23,515 - INFO - Received heartbeat from albinxps.
+2024-10-25 01:26:23,537 - INFO - Client added: b740f85a-925e-11ef-a8a8-db381720938c
+2024-10-25 01:26:23,538 - INFO - Command result received for b740f85a-925e-11ef-a8a8-db381720938c: > Client Ready
+2024-10-25 01:26:24,227 - INFO - Admin sent command 'ls' to device b740f85a-925e-11ef-a8a8-db381720938c
+2024-10-25 01:26:24,237 - INFO - Command result received for b740f85a-925e-11ef-a8a8-db381720938c: Docker
+bin
+boot
+dev
+etc
+home
+init
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+path
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+2024-10-25 01:26:27,458 - INFO - Admin sent command 'docker ps' to device b740f85a-925e-11ef-a8a8-db381720938c
+2024-10-25 01:26:27,660 - INFO - Command result received for b740f85a-925e-11ef-a8a8-db381720938c: CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+2024-10-25 01:26:31,095 - INFO - User AuthUser(auth_id=1, action=Action.PASS) closed a terminal for albinxps
+2024-10-25 01:26:31,096 - INFO - WebSocket connection cancelled for b740f85a-925e-11ef-a8a8-db381720938c.
+2024-10-25 01:26:31,097 - INFO - WebSocket connection closed for b740f85a-925e-11ef-a8a8-db381720938c
+2024-10-25 01:26:33,449 - INFO - Server was pinged.
+2024-10-25 01:26:33,571 - INFO - Received heartbeat from albinxps.
