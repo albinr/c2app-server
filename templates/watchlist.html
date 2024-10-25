@@ -43,12 +43,12 @@
                     <div class="action-buttons">
                         <form action="{{ url_for('routes.device_routes.post_toggle_watchlist_device', id=device.id) }}"
                             method="POST" style="display:inline;">
-                            <button type="submit" class="icon-button">
+                            <button type="submit" class="icon-button" title="Add to watchlist">
                                 {% if device.on_watchlist %}
-                                <img src="{{ url_for('static', filename='images/eye-on.svg') }}" class="red-icon"
+                                <img src="{{ url_for('static', filename='images/eye-on.svg') }}" class="green-icon"
                                     alt="Remove from Watchlist" />
                                 {% else %}
-                                <img src="{{ url_for('static', filename='images/eye-off.svg') }}" class="green-icon"
+                                <img src="{{ url_for('static', filename='images/eye-off.svg') }}" class="red-icon"
                                     alt="Add to Watchlist" />
                                 {% endif %}
                             </button>
@@ -56,12 +56,12 @@
 
                         <form action="{{ url_for('routes.device_routes.post_toggle_restrict_device', id=device.id) }}"
                             method="POST" style="display:inline;">
-                            <button type="submit" class="icon-button">
+                            <button type="submit" class="icon-button" title="Unrestrict/Restrict">
                                 {% if device.can_view_info %}
-                                <img src="{{ url_for('static', filename='images/lock-off.svg') }}" class="red-icon"
+                                <img src="{{ url_for('static', filename='images/lock-off.svg') }}" class="green-icon"
                                     alt="Restrict" />
                                 {% else %}
-                                <img src="{{ url_for('static', filename='images/lock-on.svg') }}" class="green-icon"
+                                <img src="{{ url_for('static', filename='images/lock-on.svg') }}" class="red-icon"
                                     alt="Unrestrict" />
                                 {% endif %}
                             </button>
@@ -69,10 +69,13 @@
 
                         
                         {% if device.is_online() %}
-                        <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}" class="icon-button">
+                        <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}" title="Open terminal" class="icon-button">
                             <img src="{{ url_for('static', filename='images/terminal.svg') }}" class="green-icon" alt="Open terminal" />
                         </a>
                         {% else %}
+                        <div class="icon-button" title="Terminal disabled">
+                            <img src="{{ url_for('static', filename='images/terminal.svg') }}" class="red-icon" alt="Open terminal" />
+                        </div>
                         {% endif %}
 
                     </div>

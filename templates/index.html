@@ -1,9 +1,19 @@
 {% include 'header.html' %}
 
 <div class="container">
-    <img src="{{ url_for('static', filename='images/blueeye.png') }}" width="100" alt="blue eye">
-    <h1>C2 Security Server</h1>
-    <a href="https://github.com/albinr/c2app-client" class="button blue-button">Download client</a>
+    <div class="intro">
+        <img src="{{ url_for('static', filename='images/blueeye.png') }}" class="logo" alt="blue eye">
+        <h1>C2 Security Server</h1>
+        <p class="description">
+            Welcome to the C2 Security Server, a command and control infrastructure designed to monitor and interact
+            with endpoint devices securely.
+            This server application manages communication, device monitoring, and real-time command execution, ensuring
+            devices remain compliant and secure.
+        </p>
+        <p>
+            <a href="https://github.com/albinr/c2app-client" class="button blue-button">Download Client</a>
+        </p>
+    </div>
 </div>
 
 {% include 'footer.html' %}

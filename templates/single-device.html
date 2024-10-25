@@ -27,8 +27,10 @@
                 style="margin-top: 10px;">
                 <button type="submit" class="button red-button">Delete Device</button>
             </form>
-            <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}"
-                class="button blue-button">Open terminal</a>
+            <p>
+                <a href="{{ url_for('routes.device_routes.device_terminal', id=device.id) }}"
+                    class="button blue-button">Open terminal</a>
+            </p>
         </div>
 
         <div class="applications-section">

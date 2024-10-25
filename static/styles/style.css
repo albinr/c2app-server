@@ -33,6 +33,24 @@ h1 {
     border-radius: 8px;
 }
 
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+}
+
+.description {
+    font-size: 18px;
+    color: #555;
+    margin: 10px;
+    max-width: 600px;
+}
+
 .row-layout {
     display: flex;
     justify-content: space-between;
@@ -162,18 +180,18 @@ nav ul li.active a {
 
 .blue-button {
     color: #fff;
-    background-color: blue;
+    background-color: #007bff;
     /* background-image: linear-gradient(blue, darken($blue, 20%)); */
-    border-color: darken(blue, 20%);
+    border-color: darken(#007bff, 20%);
 }
 
 .blue-button:hover {
-    background-color: darken(blue, 30%);
+    background-color: darken(#007bff, 30%);
     background-image: none;
 }
 
 .blue-button:active {
-    background-color: darken(blue, 35%);
+    background-color: darken(#007bff, 35%);
     background-image: none;
 }
 
@@ -245,15 +263,15 @@ nav ul li.active a {
 }
 
 .icon-button:hover {
-    opacity: 0.8;
-}
-
-.red-icon {
-    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(100deg);
+    opacity: 0.6;
 }
 
 .green-icon {
-    filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(200deg);
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(100deg);
+}
+
+.red-icon {
+    filter: invert(10%) sepia(100%) saturate(500%) hue-rotate(200deg);
 }
 
 
@@ -425,10 +443,19 @@ nav ul li.active a {
 }
 
 .flash-messages {
-    /* padding: 8px; */
-    border-radius: 10px;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 8px;
     text-align: center;
-    background-color: lightblue;
+    background-color: #007bff;
+    font-size: 20px;
+    color: #f1f1f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flash-messages p{
+    padding: 0;
+    margin: 0;
 }
 
 /* Device terminal styles */
