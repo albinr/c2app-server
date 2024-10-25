@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+hardware_id.txt
+venv/
