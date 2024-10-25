@@ -236,3 +236,58 @@
 2024-10-25 03:05:35,846 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
 2024-10-25 03:05:40,485 - INFO - User albin logged in.
 2024-10-25 13:36:02,604 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-25 16:30:55,338 - INFO - Running on http://0.0.0.0:5000 (CTRL + C to quit)
+2024-10-25 16:31:21,945 - INFO - User albin logged in.
+2024-10-25 16:31:39,779 - INFO - Server was pinged.
+2024-10-25 16:31:39,807 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:31:49,843 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:31:57,289 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-25 16:31:59,868 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:31:59,886 - INFO - Server was pinged.
+2024-10-25 16:32:09,890 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:32:19,916 - INFO - Server was pinged.
+2024-10-25 16:32:19,921 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:32:29,960 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:32:39,944 - INFO - Server was pinged.
+2024-10-25 16:32:39,994 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:32:49,823 - INFO - Device albinxps requested to be re-added to the watchlist.
+2024-10-25 16:32:50,016 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:32:59,978 - INFO - Server was pinged.
+2024-10-25 16:33:00,025 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:33:10,061 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:33:20,005 - INFO - Server was pinged.
+2024-10-25 16:33:20,101 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:33:30,156 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:36:31,389 - INFO - Server was pinged.
+2024-10-25 16:36:31,420 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:36:40,341 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-25 16:36:41,436 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:36:46,291 - INFO - Device albinxps requested to be re-added to the watchlist.
+2024-10-25 16:36:51,445 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:36:51,514 - INFO - Server was pinged.
+2024-10-25 16:37:01,484 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:37:11,528 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:37:11,532 - INFO - Server was pinged.
+2024-10-25 16:37:21,561 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:37:31,560 - INFO - Server was pinged.
+2024-10-25 16:37:31,602 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:37:41,639 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:37:51,577 - INFO - Server was pinged.
+2024-10-25 16:37:51,692 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:38:01,730 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:38:11,605 - INFO - Server was pinged.
+2024-10-25 16:38:11,766 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:38:21,824 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:46:43,250 - INFO - Server was pinged.
+2024-10-25 16:46:43,272 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:46:52,156 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-25 16:46:53,285 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:46:56,766 - INFO - Device albinxps requested to be re-added to the watchlist.
+2024-10-25 16:47:03,308 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:47:03,371 - INFO - Server was pinged.
+2024-10-25 16:47:13,337 - INFO - Received heartbeat from albinxps.
+2024-10-25 16:47:17,630 - INFO - User 1 removed from the watchlist for device albinxps.
+2024-10-25 16:47:23,359 - INFO - Device albinxps off the watchlist tried to send heartbeat.
+2024-10-25 16:47:23,393 - INFO - Server was pinged.
+2024-10-25 16:47:25,211 - INFO - Device albinxps requested to be re-added to the watchlist.
+2024-10-25 16:47:33,402 - INFO - Received heartbeat from albinxps.
