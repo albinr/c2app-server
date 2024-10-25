@@ -9,7 +9,7 @@ The C2 Security Application Server is the backend component of the C2 system des
 ## Showcase
 Below is a screenshot of the server ui:
 
-![Client GUI](static/images/showcase.png)
+![Server UI](static/images/showcase.png)
 
 
 ## How to Use
@@ -33,13 +33,6 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-
-## Build
-
-The server does not require an explicit build step but needs the correct setup:
-
-Set up your environment variables (e.g., database URL, port configurations).
-Make sure the config.py file is configured according to your environment.
 
 ## Test
 Unit tests can be run using the built-in unittest module. Make sure all dependencies are installed, and then execute:
