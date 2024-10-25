@@ -1,8 +1,16 @@
+![Logo](images/blueeye.ico)
+
 # C2 Security Application Server
 
 ## Introduction
 
 The C2 Security Application Server is the backend component of the C2 system designed for monitoring and managing endpoint devices. It facilitates communication between the admin interface and client devices, allowing for device monitoring, command execution, file management, and watchlist control. The server provides RESTful API endpoints for device management and uses WebSockets for real-time communication.
+
+## Showcase
+Below is a screenshot of the server ui:
+
+![Client GUI](static/images/showcase.png)
+
 
 ## How to Use
 
@@ -37,6 +45,11 @@ Ensure all dependencies are installed and correctly set up before running tests.
 
 ## Run
 To run the server, use:
+
+```bash
+source venv/bin/activate
+```
+and then:
 
 ```bash
 python3 server.py
