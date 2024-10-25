@@ -1,4 +1,4 @@
-![Logo](images/blueeye.ico)
+![Logo](static/images/icon.ico)
 
 # C2 Security Application Server
 
