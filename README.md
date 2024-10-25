@@ -23,6 +23,14 @@ Ensure you have the following dependencies installed:
 Install dependencies with:
 
 ```bash
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -54,6 +62,8 @@ and then:
 ```bash
 python3 server.py
 ```
+
+The server should now be accessible through "http://localhost:5000"
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
