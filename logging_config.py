@@ -3,7 +3,7 @@ import os
 
 class NoDebugFilter(logging.Filter):
     def filter(self, record):
-        return record.levelno != logging.DEBUG  # Exclude DEBUG messages
+        return record.levelno != logging.DEBUG
 
 def setup_logging():
     if not os.path.exists('logs'):

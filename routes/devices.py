@@ -238,7 +238,6 @@ async def api_device_heartbeat():
             device.last_heartbeat = func.current_timestamp()
             await session.commit()
 
-            # Check if the client is already connected via WebSocket
             is_socket_open = open_terminals.get(device.hardware_id, False)
 
             current_app.logger.info(f"Received heartbeat from {device.device_name}.")
@@ -369,8 +368,7 @@ async def device_websocket(hardware_id):
                     current_app.logger.info(f"Received command '{command}' for {hardware_id}")
                 elif data.get("type") == "command_result":
                     result = data.get("result")
-                    current_app.logger.info(f"Command result received for {hardware_id}: {result}")
-
+                    # current_app.logger.info(f"Command result received for {hardware_id}: {result}")
                     admin_client = await get_client("admin")
                     if admin_client:
                         await admin_client.send(json.dumps({
